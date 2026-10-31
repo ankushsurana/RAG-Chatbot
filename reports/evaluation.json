@@ -1,0 +1,4234 @@
+{
+  "generated_at": "2026-10-31T09:19:52+00:00",
+  "config": {
+    "llm_model": "qwen2.5:3b",
+    "embedding_model": "BAAI/bge-base-en-v1.5",
+    "rerank_model": "Xenova/ms-marco-MiniLM-L-6-v2",
+    "chunk_tokens": 500,
+    "chunk_overlap_ratio": 0.15,
+    "context_max_chunks": 4
+  },
+  "summary": {
+    "questions": 69,
+    "answerable": 57,
+    "unanswerable": 12,
+    "retrieval": {
+      "recall_at_1": 0.9649,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_8": 1.0,
+      "mrr": 0.9825,
+      "latency_p50_ms": 1174.5,
+      "latency_p95_ms": 2011.5
+    },
+    "latency": {
+      "total_p50_ms": 1994.1,
+      "total_p95_ms": 3040.9,
+      "total_max_ms": 4554.6,
+      "first_token_p50_ms": 1547.8,
+      "first_token_p95_ms": 2626.7,
+      "share_within_5s": 1.0
+    },
+    "answers": {
+      "answer_accuracy": 0.8596,
+      "false_refusals": 4,
+      "citation_accuracy": 0.9273,
+      "answers_with_citations": 1.0,
+      "hallucination_rate": 0.058,
+      "unanswerable_refusal_rate": 1.0
+    }
+  },
+  "records": [
+    {
+      "id": "d2l-1",
+      "question": "To what length are IMDb reviews truncated or padded in the sentiment analysis preprocessing?",
+      "answerable": true,
+      "retrieval_ms": 1417.5,
+      "rerank_ms": 1408.0,
+      "embed_ms": 0.0,
+      "dense_ms": 2.3,
+      "lexical_ms": 5.8,
+      "top_score": 3.6689,
+      "retrieved": [
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            787,
+            787
+          ],
+          "score": 3.6689
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            788,
+            788
+          ],
+          "score": 0.423
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            785,
+            785
+          ],
+          "score": 0.2046
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Dive_into_Deep_Learning.pdf",
+        "pages": [
+          787
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "500 [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Dive_into_Deep_Learning.pdf",
+          "page": 787
+        }
+      ],
+      "total_ms": 2051.7,
+      "first_token_ms": 1966.0,
+      "generation_ms": 632.4,
+      "prompt_tokens": 1226,
+      "completion_tokens": 7
+    },
+    {
+      "id": "d2l-2",
+      "question": "In the from-scratch MLP on Fashion-MNIST, how many input features, output classes and hidden units are used?",
+      "answerable": true,
+      "retrieval_ms": 1457.9,
+      "rerank_ms": 1433.4,
+      "embed_ms": 0.0,
+      "dense_ms": 2.6,
+      "lexical_ms": 20.5,
+      "top_score": 6.5851,
+      "retrieved": [
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            216,
+            216
+          ],
+          "score": 6.5851
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            217,
+            217
+          ],
+          "score": 1.9362
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            423,
+            423
+          ],
+          "score": -0.1181
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Dive_into_Deep_Learning.pdf",
+        "pages": [
+          216
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "In the from-scratch MLP on Fashion-MNIST, 784 input features, 10 output classes, and 256 hidden units are used [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Dive_into_Deep_Learning.pdf",
+          "page": 216
+        }
+      ],
+      "total_ms": 2241.8,
+      "first_token_ms": 1720.1,
+      "generation_ms": 782.1,
+      "prompt_tokens": 496,
+      "completion_tokens": 39
+    },
+    {
+      "id": "d2l-3",
+      "question": "How are missing values marked in the Kaggle house price dataset?",
+      "answerable": true,
+      "retrieval_ms": 621.8,
+      "rerank_ms": 610.7,
+      "embed_ms": 0.0,
+      "dense_ms": 3.1,
+      "lexical_ms": 6.2,
+      "top_score": 7.0372,
+      "retrieved": [
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            241,
+            241
+          ],
+          "score": 7.0372
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            240,
+            240
+          ],
+          "score": 1.3372
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            7,
+            8
+          ],
+          "score": 0.8154
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Dive_into_Deep_Learning.pdf",
+        "pages": [
+          241
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "na [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Dive_into_Deep_Learning.pdf",
+          "page": 241
+        }
+      ],
+      "total_ms": 888.3,
+      "first_token_ms": 833.3,
+      "generation_ms": 265.1,
+      "prompt_tokens": 429,
+      "completion_tokens": 5
+    },
+    {
+      "id": "d2l-4",
+      "question": "What does a Bernoulli random variable encode?",
+      "answerable": true,
+      "retrieval_ms": 1865.0,
+      "rerank_ms": 1801.4,
+      "embed_ms": 56.2,
+      "dense_ms": 1.9,
+      "lexical_ms": 3.3,
+      "top_score": 6.1058,
+      "retrieved": [
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            1025,
+            1025
+          ],
+          "score": 6.1058
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            189,
+            189
+          ],
+          "score": 3.0114
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            1026,
+            1027
+          ],
+          "score": 1.8163
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Dive_into_Deep_Learning.pdf",
+        "pages": [
+          1025
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "A Bernoulli random variable encodes a coin flip which comes up 1 with probability p and 0 with probability 1 \u2212 p [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Dive_into_Deep_Learning.pdf",
+          "page": 1025
+        }
+      ],
+      "total_ms": 4554.6,
+      "first_token_ms": 4141.6,
+      "generation_ms": 2686.8,
+      "prompt_tokens": 846,
+      "completion_tokens": 30
+    },
+    {
+      "id": "d2l-5",
+      "question": "What does the configure_optimizers method of LinearRegressionScratch return?",
+      "answerable": true,
+      "retrieval_ms": 1475.4,
+      "rerank_ms": 1440.7,
+      "embed_ms": 27.9,
+      "dense_ms": 1.8,
+      "lexical_ms": 3.7,
+      "top_score": 6.3997,
+      "retrieved": [
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            145,
+            145
+          ],
+          "score": 6.3997
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            150,
+            150
+          ],
+          "score": 4.0785
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            163,
+            163
+          ],
+          "score": 3.848
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Dive_into_Deep_Learning.pdf",
+        "pages": [
+          145
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The configure_optimizers method of LinearRegressionScratch returns an instance of the SGD class [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Dive_into_Deep_Learning.pdf",
+          "page": 145
+        }
+      ],
+      "total_ms": 2433.4,
+      "first_token_ms": 2158.3,
+      "generation_ms": 953.9,
+      "prompt_tokens": 1540,
+      "completion_tokens": 20
+    },
+    {
+      "id": "faa-1",
+      "question": "What errors do the best INS/IRS systems display after flights across the North Atlantic?",
+      "answerable": true,
+      "retrieval_ms": 672.2,
+      "rerank_ms": 591.9,
+      "embed_ms": 58.6,
+      "dense_ms": 2.2,
+      "lexical_ms": 17.4,
+      "top_score": 9.6868,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            278,
+            278
+          ],
+          "score": 9.6868
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            277,
+            278
+          ],
+          "score": 9.3021
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            287,
+            287
+          ],
+          "score": -6.7682
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+        "pages": [
+          278
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "0.1 to 0.4 NM [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "page": 278
+        }
+      ],
+      "total_ms": 1277.0,
+      "first_token_ms": 1107.1,
+      "generation_ms": 602.5,
+      "prompt_tokens": 854,
+      "completion_tokens": 13
+    },
+    {
+      "id": "faa-2",
+      "question": "If a vertical speed indicator pointer is aligned with .5, how fast is the aircraft climbing?",
+      "answerable": true,
+      "retrieval_ms": 1217.1,
+      "rerank_ms": 1178.2,
+      "embed_ms": 28.4,
+      "dense_ms": 1.8,
+      "lexical_ms": 7.3,
+      "top_score": 5.1982,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            138,
+            139
+          ],
+          "score": 5.1982
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            177,
+            178
+          ],
+          "score": 2.6753
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            197,
+            198
+          ],
+          "score": 2.2619
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+        "pages": [
+          139
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The aircraft is climbing at 500 feet per minute [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "page": 139
+        }
+      ],
+      "total_ms": 2137.8,
+      "first_token_ms": 1922.1,
+      "generation_ms": 918.7,
+      "prompt_tokens": 1360,
+      "completion_tokens": 16
+    },
+    {
+      "id": "faa-3",
+      "question": "Does a turn coordinator sense pitch?",
+      "answerable": true,
+      "retrieval_ms": 911.4,
+      "rerank_ms": 876.0,
+      "embed_ms": 27.3,
+      "dense_ms": 2.7,
+      "lexical_ms": 3.7,
+      "top_score": 8.1013,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            116,
+            117
+          ],
+          "score": 8.1013
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            117,
+            117
+          ],
+          "score": 8.0506
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            218,
+            219
+          ],
+          "score": 3.4554
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+        "pages": [
+          117
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "NO PITCH INFORMATION [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "page": 117
+        }
+      ],
+      "total_ms": 1455.2,
+      "first_token_ms": 1352.3,
+      "generation_ms": 542.0,
+      "prompt_tokens": 887,
+      "completion_tokens": 8
+    },
+    {
+      "id": "faa-4",
+      "question": "When flying a 10 DME arc outbound, what is the lead point distance?",
+      "answerable": true,
+      "retrieval_ms": 1037.8,
+      "rerank_ms": 975.2,
+      "embed_ms": 48.3,
+      "dense_ms": 3.3,
+      "lexical_ms": 9.6,
+      "top_score": 7.4203,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            260,
+            261
+          ],
+          "score": 7.4203
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            261,
+            261
+          ],
+          "score": 3.3683
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            261,
+            262
+          ],
+          "score": 2.3921
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+        "pages": [
+          261
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "9.5 NM [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "page": 261
+        }
+      ],
+      "total_ms": 1434.6,
+      "first_token_ms": 1332.2,
+      "generation_ms": 395.2,
+      "prompt_tokens": 563,
+      "completion_tokens": 8
+    },
+    {
+      "id": "faa-5",
+      "question": "What equipment does area navigation (RNAV) include?",
+      "answerable": true,
+      "retrieval_ms": 860.6,
+      "rerank_ms": 819.5,
+      "embed_ms": 31.3,
+      "dense_ms": 2.1,
+      "lexical_ms": 5.9,
+      "top_score": 10.2618,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            264,
+            265
+          ],
+          "score": 10.2618
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            265,
+            266
+          ],
+          "score": 8.4886
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            347,
+            348
+          ],
+          "score": 4.7216
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+        "pages": [
+          265
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Area navigation (RNAV) includes VOR/DME, LORAN, GPS, and inertial navigation systems (INS) [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "page": 265
+        }
+      ],
+      "total_ms": 1747.5,
+      "first_token_ms": 1337.2,
+      "generation_ms": 885.2,
+      "prompt_tokens": 1054,
+      "completion_tokens": 30
+    },
+    {
+      "id": "faa-6",
+      "question": "What is the function of an Attitude and Heading Reference System?",
+      "answerable": true,
+      "retrieval_ms": 815.4,
+      "rerank_ms": 772.0,
+      "embed_ms": 30.2,
+      "dense_ms": 2.2,
+      "lexical_ms": 9.5,
+      "top_score": 7.5249,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            117,
+            117
+          ],
+          "score": 7.5249
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            347,
+            348
+          ],
+          "score": 6.5197
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            143,
+            143
+          ],
+          "score": 4.3105
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+        "pages": [
+          117
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The function of an Attitude and Heading Reference System (AHRS) is to determine which way is level and which way is north, enabling it to ascertain both the aircraft's attitude and magnetic heading [1]. It replaces separate gyroscopes for attitude indicator, magnetic heading indicator, and turn indicator functions [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "page": 117
+        }
+      ],
+      "total_ms": 2229.8,
+      "first_token_ms": 1291.9,
+      "generation_ms": 1411.7,
+      "prompt_tokens": 1068,
+      "completion_tokens": 62
+    },
+    {
+      "id": "nasa-1",
+      "question": "Which NASA procedural requirement governs retention of technical data beyond system retirement?",
+      "answerable": true,
+      "retrieval_ms": 1200.3,
+      "rerank_ms": 1041.7,
+      "embed_ms": 31.7,
+      "dense_ms": 8.1,
+      "lexical_ms": 9.6,
+      "top_score": 2.5737,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            161,
+            162
+          ],
+          "score": 2.5737
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            276,
+            277
+          ],
+          "score": -1.0508
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            166,
+            166
+          ],
+          "score": -5.3603
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+        "pages": [
+          161
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "NPR 1441.1 governs retention of technical data beyond system retirement  [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 161
+        }
+      ],
+      "total_ms": 1866.1,
+      "first_token_ms": 1568.9,
+      "generation_ms": 662.7,
+      "prompt_tokens": 770,
+      "completion_tokens": 22
+    },
+    {
+      "id": "nasa-2",
+      "question": "Which product form is identical to the flight unit but may be subjected to extreme environments?",
+      "answerable": true,
+      "retrieval_ms": 808.9,
+      "rerank_ms": 762.4,
+      "embed_ms": 31.7,
+      "dense_ms": 2.2,
+      "lexical_ms": 11.5,
+      "top_score": 6.027,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            134,
+            135
+          ],
+          "score": 6.027
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            136,
+            137
+          ],
+          "score": 5.5769
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            221,
+            222
+          ],
+          "score": -0.0306
+        }
+      ],
+      "relevant_rank": 2,
+      "gold": {
+        "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+        "pages": [
+          137
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 0,
+      "answer": "qualification unit [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 134
+        }
+      ],
+      "total_ms": 1269.5,
+      "first_token_ms": 1195.3,
+      "generation_ms": 459.2,
+      "prompt_tokens": 800,
+      "completion_tokens": 6
+    },
+    {
+      "id": "nasa-3",
+      "question": "What do thread tests exercise during Phase E product verification?",
+      "answerable": true,
+      "retrieval_ms": 833.7,
+      "rerank_ms": 789.3,
+      "embed_ms": 26.8,
+      "dense_ms": 3.1,
+      "lexical_ms": 13.6,
+      "top_score": 7.0083,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            266,
+            267
+          ],
+          "score": 7.0083
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            267,
+            268
+          ],
+          "score": -0.4266
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            21,
+            21
+          ],
+          "score": -2.2575
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+        "pages": [
+          267
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Thread tests exercise single specific tasks or functions during Phase E product verification [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 267
+        }
+      ],
+      "total_ms": 1304.1,
+      "first_token_ms": 1081.0,
+      "generation_ms": 468.9,
+      "prompt_tokens": 453,
+      "completion_tokens": 17
+    },
+    {
+      "id": "nasa-4",
+      "question": "What is the relevant environment in NASA product verification?",
+      "answerable": true,
+      "retrieval_ms": 780.4,
+      "rerank_ms": 726.3,
+      "embed_ms": 40.5,
+      "dense_ms": 7.3,
+      "lexical_ms": 3.5,
+      "top_score": 5.1983,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            136,
+            137
+          ],
+          "score": 5.1983
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            102,
+            103
+          ],
+          "score": 4.1732
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            136,
+            136
+          ],
+          "score": 3.7987
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+        "pages": [
+          137
+        ]
+      },
+      "correct": false,
+      "hallucinated": true,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 2,
+      "citations_correct": 1,
+      "answer": "The relevant environment for NASA product verification is not specified as a fixed condition but can vary depending on the nature of the verification effort and the life cycle phase [2]. It typically occurs in the intended operational environment or a relevant environment under simulated or actual operational conditions, not necessarily under tightly controlled conditions used for product verification [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 136
+        },
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 102
+        }
+      ],
+      "total_ms": 2317.4,
+      "first_token_ms": 1375.1,
+      "generation_ms": 1532.2,
+      "prompt_tokens": 1202,
+      "completion_tokens": 62
+    },
+    {
+      "id": "nasa-5",
+      "question": "What is the risk when products used in Phase D integration and test and Phase E operations are formatted differently?",
+      "answerable": true,
+      "retrieval_ms": 854.8,
+      "rerank_ms": 793.5,
+      "embed_ms": 34.9,
+      "dense_ms": 2.2,
+      "lexical_ms": 22.7,
+      "top_score": 6.7591,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            264,
+            265
+          ],
+          "score": 6.7591
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            266,
+            267
+          ],
+          "score": 0.6106
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            268,
+            269
+          ],
+          "score": -0.0019
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+        "pages": [
+          265
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Increased cost and schedule risk [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 265
+        }
+      ],
+      "total_ms": 1497.5,
+      "first_token_ms": 1387.1,
+      "generation_ms": 640.9,
+      "prompt_tokens": 360,
+      "completion_tokens": 9
+    },
+    {
+      "id": "nasa-6",
+      "question": "What does initial technical planning establish at the beginning of a project?",
+      "answerable": true,
+      "retrieval_ms": 1197.9,
+      "rerank_ms": 1156.3,
+      "embed_ms": 29.7,
+      "dense_ms": 2.8,
+      "lexical_ms": 7.6,
+      "top_score": 8.6312,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            127,
+            127
+          ],
+          "score": 8.6312
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            126,
+            127
+          ],
+          "score": 6.8308
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            123,
+            123
+          ],
+          "score": 4.2211
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+        "pages": [
+          127
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Initial technical planning establishes the technical team members; their roles and responsibilities; and the tools, processes, and resources that will be utilized in executing the technical effort [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "page": 127
+        }
+      ],
+      "total_ms": 2043.4,
+      "first_token_ms": 1547.8,
+      "generation_ms": 843.3,
+      "prompt_tokens": 695,
+      "completion_tokens": 36
+    },
+    {
+      "id": "scrm-1",
+      "question": "What should a C-SCRM Risk Response Framework include?",
+      "answerable": true,
+      "retrieval_ms": 1552.6,
+      "rerank_ms": 1512.5,
+      "embed_ms": 28.5,
+      "dense_ms": 1.9,
+      "lexical_ms": 7.7,
+      "top_score": 9.7941,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            302,
+            303
+          ],
+          "score": 9.7941
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            298,
+            298
+          ],
+          "score": 6.1152
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            301,
+            301
+          ],
+          "score": 5.9893
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+        "pages": [
+          303
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "A C-SCRM Risk Response Framework includes: a description of the threat source, event, vulnerability, and outcome; an analysis of likelihood and impact; and a description of selected mitigating strategies and controls with cost and effectiveness estimates [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "page": 303
+        }
+      ],
+      "total_ms": 2849.4,
+      "first_token_ms": 2110.2,
+      "generation_ms": 1295.0,
+      "prompt_tokens": 1173,
+      "completion_tokens": 51
+    },
+    {
+      "id": "scrm-2",
+      "question": "In the PM-11 supplemental guidance, what C-SCRM activity is given as an example for a system designed for easy removal and replacement of failed components?",
+      "answerable": true,
+      "retrieval_ms": 1295.3,
+      "rerank_ms": 1230.8,
+      "embed_ms": 39.4,
+      "dense_ms": 2.0,
+      "lexical_ms": 22.2,
+      "top_score": 7.0802,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            136,
+            136
+          ],
+          "score": 7.0802
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            134,
+            134
+          ],
+          "score": 1.644
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            133,
+            133
+          ],
+          "score": 1.5463
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+        "pages": [
+          136
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "In the PM-11 supplemental guidance, a C-SCRM activity to ensure component spare parts are readily available if needed is given as an example for a system designed for easy removal and replacement of failed components  [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "page": 136
+        }
+      ],
+      "total_ms": 2212.6,
+      "first_token_ms": 1550.1,
+      "generation_ms": 915.2,
+      "prompt_tokens": 506,
+      "completion_tokens": 47
+    },
+    {
+      "id": "scrm-3",
+      "question": "Which levels does the PM-10 authorization process supplemental guidance apply to?",
+      "answerable": true,
+      "retrieval_ms": 2076.4,
+      "rerank_ms": 2024.3,
+      "embed_ms": 31.0,
+      "dense_ms": 5.9,
+      "lexical_ms": 13.3,
+      "top_score": 5.3929,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            136,
+            136
+          ],
+          "score": 5.3929
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            391,
+            391
+          ],
+          "score": 0.12
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            287,
+            290
+          ],
+          "score": -0.2123
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+        "pages": [
+          136
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "PM-10 AUTHORIZATION PROCESS supplemental C-SCRM Guidance applies to Level(s): 1, 2 [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "page": 136
+        }
+      ],
+      "total_ms": 2800.5,
+      "first_token_ms": 2344.6,
+      "generation_ms": 722.6,
+      "prompt_tokens": 488,
+      "completion_tokens": 27
+    },
+    {
+      "id": "scrm-4",
+      "question": "Which table in NIST SP 800-161 holds the Information Gathering and Scoping Analysis sample text?",
+      "answerable": true,
+      "retrieval_ms": 943.4,
+      "rerank_ms": 892.0,
+      "embed_ms": 34.7,
+      "dense_ms": 8.3,
+      "lexical_ms": 6.2,
+      "top_score": 5.0442,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            232,
+            233
+          ],
+          "score": 5.0442
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            240,
+            240
+          ],
+          "score": -1.3507
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            235,
+            237
+          ],
+          "score": -2.8661
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+        "pages": [
+          232
+        ]
+      },
+      "correct": false,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1691.6,
+      "first_token_ms": 1323.9,
+      "generation_ms": 747.0,
+      "prompt_tokens": 382,
+      "completion_tokens": 12
+    },
+    {
+      "id": "scrm-5",
+      "question": "What information is added to the cybersecurity risk register (CSRR)?",
+      "answerable": true,
+      "retrieval_ms": 1338.1,
+      "rerank_ms": 1292.9,
+      "embed_ms": 32.3,
+      "dense_ms": 2.0,
+      "lexical_ms": 9.0,
+      "top_score": 8.4888,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            27,
+            29
+          ],
+          "score": 8.4888
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            231,
+            231
+          ],
+          "score": 0.5214
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            298,
+            298
+          ],
+          "score": 0.2192
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+        "pages": [
+          28
+        ]
+      },
+      "correct": false,
+      "hallucinated": true,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Information about the selection of and projected cost of risk response is added to the cybersecurity risk register (CSRR) in support of an overall enterprise risk register [1]. This helps maintain a composite view of cybersecurity risks throughout the enterprise, which can be used to confirm and adjust risk strategy to ensure mission success [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "page": 28
+        }
+      ],
+      "total_ms": 2520.0,
+      "first_token_ms": 1602.4,
+      "generation_ms": 1179.9,
+      "prompt_tokens": 476,
+      "completion_tokens": 63
+    },
+    {
+      "id": "sca-1",
+      "question": "What does IA-12(01) require of the registration process for logical access accounts?",
+      "answerable": true,
+      "retrieval_ms": 1893.0,
+      "rerank_ms": 1844.0,
+      "embed_ms": 32.9,
+      "dense_ms": 2.2,
+      "lexical_ms": 12.6,
+      "top_score": 6.6245,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            283,
+            283
+          ],
+          "score": 6.6245
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            282,
+            282
+          ],
+          "score": 4.9869
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            284,
+            284
+          ],
+          "score": 0.7176
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+        "pages": [
+          283
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "IA-12(01) requires that the registration process to receive an account for logical access includes supervisor or sponsor authorization [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 283
+        }
+      ],
+      "total_ms": 2853.1,
+      "first_token_ms": 2445.1,
+      "generation_ms": 958.6,
+      "prompt_tokens": 824,
+      "completion_tokens": 30
+    },
+    {
+      "id": "sca-2",
+      "question": "Where was control enhancement SI-07(13) moved to?",
+      "answerable": true,
+      "retrieval_ms": 937.6,
+      "rerank_ms": 897.0,
+      "embed_ms": 29.8,
+      "dense_ms": 2.2,
+      "lexical_ms": 6.7,
+      "top_score": 3.254,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            647,
+            647
+          ],
+          "score": 3.254
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            311,
+            312
+          ],
+          "score": 0.5168
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            305,
+            307
+          ],
+          "score": -3.1317
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+        "pages": [
+          647
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "SI-07(13) SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | CODE EXECUTION IN PROTECTED ENVIRONMENTS [WITHDRAWN: Moved to CM-07(07).] was moved to CM-07(07) [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 647
+        }
+      ],
+      "total_ms": 2174.8,
+      "first_token_ms": 1333.8,
+      "generation_ms": 1234.4,
+      "prompt_tokens": 842,
+      "completion_tokens": 56
+    },
+    {
+      "id": "sca-3",
+      "question": "In CA-07(03), what is trend analysis employed to determine?",
+      "answerable": true,
+      "retrieval_ms": 1422.1,
+      "rerank_ms": 1378.4,
+      "embed_ms": 31.7,
+      "dense_ms": 4.6,
+      "lexical_ms": 5.8,
+      "top_score": 7.9675,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            182,
+            182
+          ],
+          "score": 7.9675
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            183,
+            183
+          ],
+          "score": 1.2502
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            181,
+            181
+          ],
+          "score": -0.5001
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+        "pages": [
+          182
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "In CA-07(03), trend analysis is employed to determine if the frequency, types, and frequency of continuous monitoring activities need to be modified based on empirical data [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 182
+        }
+      ],
+      "total_ms": 2310.7,
+      "first_token_ms": 1750.9,
+      "generation_ms": 887.1,
+      "prompt_tokens": 527,
+      "completion_tokens": 40
+    },
+    {
+      "id": "sca-4",
+      "question": "What must be identified under CP-02(08) Identify Critical Assets?",
+      "answerable": true,
+      "retrieval_ms": 2011.5,
+      "rerank_ms": 1956.4,
+      "embed_ms": 38.3,
+      "dense_ms": 2.3,
+      "lexical_ms": 13.1,
+      "top_score": 6.7487,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            232,
+            232
+          ],
+          "score": 6.7487
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            110,
+            110
+          ],
+          "score": 3.8859
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            229,
+            229
+          ],
+          "score": -1.201
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+        "pages": [
+          232
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "CP-02(08) critical system assets supporting {all; essential} mission and business functions are identified [1]. This involves examining contingency planning policy, procedures addressing contingency operations for the system, contingency plan, business impact assessment, system security plan, or other relevant documents and interviewing organizational personnel with contingency planning and plan implementation responsibilities, knowledge of requirements for mission and business functions, or information security responsibilities to ensure critical assets including hardware, software, and personnel are identified [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 232
+        }
+      ],
+      "total_ms": 4087.1,
+      "first_token_ms": 2626.7,
+      "generation_ms": 2073.2,
+      "prompt_tokens": 724,
+      "completion_tokens": 97
+    },
+    {
+      "id": "sca-5",
+      "question": "According to PM-01, what does the information security program plan provide an overview of?",
+      "answerable": true,
+      "retrieval_ms": 2131.5,
+      "rerank_ms": 2075.3,
+      "embed_ms": 32.7,
+      "dense_ms": 3.9,
+      "lexical_ms": 16.7,
+      "top_score": 6.7435,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            383,
+            383
+          ],
+          "score": 6.7435
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            397,
+            397
+          ],
+          "score": 5.8848
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            397,
+            397
+          ],
+          "score": 5.501
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+        "pages": [
+          383
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The information security program plan provides an overview of the requirements for the security program [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 383
+        }
+      ],
+      "total_ms": 3276.8,
+      "first_token_ms": 2986.6,
+      "generation_ms": 1144.1,
+      "prompt_tokens": 1411,
+      "completion_tokens": 20
+    },
+    {
+      "id": "sca-6",
+      "question": "Under SA-15, what must the developer of a system be required to follow?",
+      "answerable": true,
+      "retrieval_ms": 1952.0,
+      "rerank_ms": 1896.8,
+      "embed_ms": 30.4,
+      "dense_ms": 3.7,
+      "lexical_ms": 19.7,
+      "top_score": 7.2848,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            513,
+            513
+          ],
+          "score": 7.2848
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            513,
+            513
+          ],
+          "score": 6.1135
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            514,
+            514
+          ],
+          "score": 4.7897
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+        "pages": [
+          513
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 2,
+      "citations_correct": 1,
+      "answer": "The developer of a system must follow a documented development process that explicitly addresses security and privacy requirements [2][4].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 513
+        },
+        {
+          "file": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "page": 515
+        }
+      ],
+      "total_ms": 3040.9,
+      "first_token_ms": 2706.2,
+      "generation_ms": 1087.3,
+      "prompt_tokens": 1388,
+      "completion_tokens": 24
+    },
+    {
+      "id": "ot-1",
+      "question": "What three tiers does the Industry IoT Consortium propose for IIoT system architecture?",
+      "answerable": true,
+      "retrieval_ms": 1907.4,
+      "rerank_ms": 1852.6,
+      "embed_ms": 36.1,
+      "dense_ms": 3.7,
+      "lexical_ms": 13.2,
+      "top_score": 10.1443,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            43,
+            44
+          ],
+          "score": 10.1443
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            88,
+            89
+          ],
+          "score": 4.152
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            44,
+            44
+          ],
+          "score": 2.9314
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+        "pages": [
+          43
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The Industry IoT Consortium proposes a three-tier system architecture model for representing IIoT systems: the edge tier, platform tier, and enterprise tier [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "page": 43
+        }
+      ],
+      "total_ms": 2755.1,
+      "first_token_ms": 2310.6,
+      "generation_ms": 846.3,
+      "prompt_tokens": 479,
+      "completion_tokens": 33
+    },
+    {
+      "id": "ot-2",
+      "question": "What techniques can implement temporary remote access to an OT system?",
+      "answerable": true,
+      "retrieval_ms": 1801.1,
+      "rerank_ms": 1753.2,
+      "embed_ms": 31.9,
+      "dense_ms": 2.3,
+      "lexical_ms": 11.9,
+      "top_score": 8.6044,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            139,
+            140
+          ],
+          "score": 8.6044
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            140,
+            140
+          ],
+          "score": 4.17
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            249,
+            250
+          ],
+          "score": 3.0469
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+        "pages": [
+          140
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Users or protocols (e.g., RDP, SSH) that are temporarily permitted through the OT or enterprise firewall, screen-sharing technologies, modems, and VPNs can implement temporary remote access to an OT system [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "page": 140
+        }
+      ],
+      "total_ms": 2913.8,
+      "first_token_ms": 2261.8,
+      "generation_ms": 1110.7,
+      "prompt_tokens": 471,
+      "completion_tokens": 47
+    },
+    {
+      "id": "ot-3",
+      "question": "How does the NIST SP 800-82 glossary define a disaster recovery plan?",
+      "answerable": true,
+      "retrieval_ms": 903.8,
+      "rerank_ms": 859.7,
+      "embed_ms": 32.0,
+      "dense_ms": 7.7,
+      "lexical_ms": 2.9,
+      "top_score": 5.1066,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            179,
+            179
+          ],
+          "score": 5.1066
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            131,
+            132
+          ],
+          "score": 2.0528
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            97,
+            97
+          ],
+          "score": 0.2068
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+        "pages": [
+          179
+        ]
+      },
+      "correct": false,
+      "hallucinated": true,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 0,
+      "answer": "NIST SP 800-34r1 defines a disaster recovery plan as a documented process or set of procedures that comprise a comprehensive statement of recovery actions to be taken before, during, and after a disaster [2].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "page": 132
+        }
+      ],
+      "total_ms": 2192.1,
+      "first_token_ms": 1325.6,
+      "generation_ms": 1285.6,
+      "prompt_tokens": 770,
+      "completion_tokens": 57
+    },
+    {
+      "id": "ot-4",
+      "question": "What are the most common functions of a building automation system?",
+      "answerable": true,
+      "retrieval_ms": 2001.1,
+      "rerank_ms": 1952.7,
+      "embed_ms": 30.5,
+      "dense_ms": 4.0,
+      "lexical_ms": 11.3,
+      "top_score": 8.9235,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            39,
+            40
+          ],
+          "score": 8.9235
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            25,
+            25
+          ],
+          "score": 1.2553
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            3,
+            5
+          ],
+          "score": 0.7179
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+        "pages": [
+          39
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The most common functions of a building automation system include maintaining environmental conditions for occupant comfort, reducing energy consumption, increasing security, recording historical data, and performing general equipment monitoring [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "page": 39
+        }
+      ],
+      "total_ms": 2937.9,
+      "first_token_ms": 2400.6,
+      "generation_ms": 935.3,
+      "prompt_tokens": 458,
+      "completion_tokens": 39
+    },
+    {
+      "id": "ot-5",
+      "question": "What are examples of media assets in OT physical security guidance?",
+      "answerable": true,
+      "retrieval_ms": 740.3,
+      "rerank_ms": 693.5,
+      "embed_ms": 30.3,
+      "dense_ms": 3.2,
+      "lexical_ms": 10.7,
+      "top_score": 6.8531,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            136,
+            136
+          ],
+          "score": 6.8531
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            86,
+            87
+          ],
+          "score": 5.386
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            18,
+            18
+          ],
+          "score": 2.7726
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+        "pages": [
+          136
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Examples of media assets in OT physical security guidance include removable media and devices such as floppy disks, CDs, DVDs, SD cards, and USB memory sticks, as well as printed reports and documents [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "page": 136
+        }
+      ],
+      "total_ms": 1745.2,
+      "first_token_ms": 1151.8,
+      "generation_ms": 1002.7,
+      "prompt_tokens": 765,
+      "completion_tokens": 40
+    },
+    {
+      "id": "ot-6",
+      "question": "How does NIST SP 800-82 define a discrete process?",
+      "answerable": true,
+      "retrieval_ms": 1036.7,
+      "rerank_ms": 993.7,
+      "embed_ms": 28.0,
+      "dense_ms": 9.7,
+      "lexical_ms": 4.3,
+      "top_score": 0.0742,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            179,
+            179
+          ],
+          "score": 0.0742
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            36,
+            36
+          ],
+          "score": -3.0584
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            150,
+            150
+          ],
+          "score": -7.4103
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+        "pages": [
+          179
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "NIST SP 800-82 defines a discrete process as one where a specified quantity of material moves as a unit (part or group of parts) between work stations and each unit maintains its unique identity [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "page": 179
+        }
+      ],
+      "total_ms": 2143.4,
+      "first_token_ms": 1428.5,
+      "generation_ms": 1103.7,
+      "prompt_tokens": 760,
+      "completion_tokens": 48
+    },
+    {
+      "id": "git-1",
+      "question": "What is the only flag that makes the git reset command dangerous?",
+      "answerable": true,
+      "retrieval_ms": 849.0,
+      "rerank_ms": 806.8,
+      "embed_ms": 29.5,
+      "dense_ms": 2.0,
+      "lexical_ms": 8.8,
+      "top_score": 6.185,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            268,
+            269
+          ],
+          "score": 6.185
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            53,
+            54
+          ],
+          "score": 5.1147
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            488,
+            488
+          ],
+          "score": 2.794
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Pro_Git_2e.pdf",
+        "pages": [
+          269
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "--hard [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Pro_Git_2e.pdf",
+          "page": 268
+        }
+      ],
+      "total_ms": 1401.1,
+      "first_token_ms": 1366.8,
+      "generation_ms": 549.9,
+      "prompt_tokens": 1112,
+      "completion_tokens": 3
+    },
+    {
+      "id": "git-2",
+      "question": "Which option should you add to ssh-keygen when protecting a key with a password?",
+      "answerable": true,
+      "retrieval_ms": 872.5,
+      "rerank_ms": 827.6,
+      "embed_ms": 31.9,
+      "dense_ms": 2.6,
+      "lexical_ms": 8.1,
+      "top_score": 2.8752,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            119,
+            119
+          ],
+          "score": 2.8752
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            174,
+            176
+          ],
+          "score": 0.8682
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            173,
+            174
+          ],
+          "score": 0.8272
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Pro_Git_2e.pdf",
+        "pages": [
+          119
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "-o [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Pro_Git_2e.pdf",
+          "page": 119
+        }
+      ],
+      "total_ms": 1623.2,
+      "first_token_ms": 1559.7,
+      "generation_ms": 749.2,
+      "prompt_tokens": 1541,
+      "completion_tokens": 5
+    },
+    {
+      "id": "git-3",
+      "question": "How many .gitignore files does the Linux kernel source repository have?",
+      "answerable": true,
+      "retrieval_ms": 1741.6,
+      "rerank_ms": 1696.1,
+      "embed_ms": 32.9,
+      "dense_ms": 2.8,
+      "lexical_ms": 7.6,
+      "top_score": 9.3383,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            38,
+            39
+          ],
+          "score": 9.3383
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            225,
+            226
+          ],
+          "score": 1.904
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            224,
+            225
+          ],
+          "score": 1.8662
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Pro_Git_2e.pdf",
+        "pages": [
+          39
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "206 [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Pro_Git_2e.pdf",
+          "page": 39
+        }
+      ],
+      "total_ms": 2240.8,
+      "first_token_ms": 2148.7,
+      "generation_ms": 496.9,
+      "prompt_tokens": 536,
+      "completion_tokens": 7
+    },
+    {
+      "id": "git-4",
+      "question": "Where is the first place Git looks for configuration values?",
+      "answerable": true,
+      "retrieval_ms": 1082.2,
+      "rerank_ms": 1036.7,
+      "embed_ms": 28.7,
+      "dense_ms": 2.9,
+      "lexical_ms": 11.6,
+      "top_score": 9.3075,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            342,
+            342
+          ],
+          "score": 9.3075
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            27,
+            27
+          ],
+          "score": 3.7338
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            27,
+            28
+          ],
+          "score": 3.3212
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Pro_Git_2e.pdf",
+        "pages": [
+          342
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The first place Git looks for configuration values is in the system-wide [path]/etc/gitconfig file [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Pro_Git_2e.pdf",
+          "page": 342
+        }
+      ],
+      "total_ms": 1724.5,
+      "first_token_ms": 1380.8,
+      "generation_ms": 640.7,
+      "prompt_tokens": 499,
+      "completion_tokens": 25
+    },
+    {
+      "id": "git-5",
+      "question": "Which two commands are equivalent to running git svn clone?",
+      "answerable": true,
+      "retrieval_ms": 1621.8,
+      "rerank_ms": 1577.7,
+      "embed_ms": 30.8,
+      "dense_ms": 2.8,
+      "lexical_ms": 8.6,
+      "top_score": 6.224,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            375,
+            376
+          ],
+          "score": 6.224
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            382,
+            383
+          ],
+          "score": 5.8388
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            381,
+            382
+          ],
+          "score": 5.3766
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Pro_Git_2e.pdf",
+        "pages": [
+          375
+        ]
+      },
+      "correct": false,
+      "hallucinated": true,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "-s [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Pro_Git_2e.pdf",
+          "page": 375
+        }
+      ],
+      "total_ms": 2286.6,
+      "first_token_ms": 2224.0,
+      "generation_ms": 663.4,
+      "prompt_tokens": 1337,
+      "completion_tokens": 5
+    },
+    {
+      "id": "git-6",
+      "question": "What character delimits the fields in the example ACL file for a Git server hook?",
+      "answerable": true,
+      "retrieval_ms": 1504.5,
+      "rerank_ms": 1453.3,
+      "embed_ms": 37.9,
+      "dense_ms": 2.1,
+      "lexical_ms": 8.9,
+      "top_score": 5.9916,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            366,
+            367
+          ],
+          "score": 5.9916
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            365,
+            366
+          ],
+          "score": 4.525
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            370,
+            371
+          ],
+          "score": 0.973
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Pro_Git_2e.pdf",
+        "pages": [
+          366
+        ]
+      },
+      "correct": false,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1991.4,
+      "first_token_ms": 1935.3,
+      "generation_ms": 486.0,
+      "prompt_tokens": 806,
+      "completion_tokens": 5
+    },
+    {
+      "id": "py-1",
+      "question": "Why is the first element of rank_names set to None in the Card class?",
+      "answerable": true,
+      "retrieval_ms": 1119.0,
+      "rerank_ms": 1075.1,
+      "embed_ms": 29.7,
+      "dense_ms": 4.3,
+      "lexical_ms": 8.4,
+      "top_score": 6.2025,
+      "retrieved": [
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            194,
+            195
+          ],
+          "score": 6.2025
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            193,
+            194
+          ],
+          "score": 1.5221
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            195,
+            196
+          ],
+          "score": -2.1884
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Python_2e_SCANNED.pdf",
+        "pages": [
+          195
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The first element of rank_names is set to None because there is no card with a rank value of zero [1]. This placement ensures that the index 2 correctly maps to '2', continuing the sequence without gaps [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Python_2e_SCANNED.pdf",
+          "page": 195
+        }
+      ],
+      "total_ms": 2443.8,
+      "first_token_ms": 1395.7,
+      "generation_ms": 898.5,
+      "prompt_tokens": 545,
+      "completion_tokens": 43
+    },
+    {
+      "id": "py-2",
+      "question": "What is wrapping a piece of code up in a function called?",
+      "answerable": true,
+      "retrieval_ms": 966.6,
+      "rerank_ms": 921.2,
+      "embed_ms": 32.4,
+      "dense_ms": 2.4,
+      "lexical_ms": 9.5,
+      "top_score": 6.675,
+      "retrieved": [
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            54,
+            55
+          ],
+          "score": 6.675
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            43,
+            44
+          ],
+          "score": -3.7906
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            37,
+            40
+          ],
+          "score": -4.3371
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Python_2e_SCANNED.pdf",
+        "pages": [
+          54
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Encapsulation [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Python_2e_SCANNED.pdf",
+          "page": 54
+        }
+      ],
+      "total_ms": 1341.1,
+      "first_token_ms": 1266.9,
+      "generation_ms": 372.6,
+      "prompt_tokens": 549,
+      "completion_tokens": 6
+    },
+    {
+      "id": "py-3",
+      "question": "What is the special name for the topmost frame in a Python stack diagram?",
+      "answerable": true,
+      "retrieval_ms": 894.7,
+      "rerank_ms": 850.3,
+      "embed_ms": 34.4,
+      "dense_ms": 3.7,
+      "lexical_ms": 4.9,
+      "top_score": 6.6998,
+      "retrieved": [
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            44,
+            45
+          ],
+          "score": 6.6998
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            65,
+            66
+          ],
+          "score": 1.7717
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            45,
+            46
+          ],
+          "score": 0.367
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Python_2e_SCANNED.pdf",
+        "pages": [
+          45
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "__main__ [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Python_2e_SCANNED.pdf",
+          "page": 45
+        }
+      ],
+      "total_ms": 1244.6,
+      "first_token_ms": 1155.8,
+      "generation_ms": 347.9,
+      "prompt_tokens": 488,
+      "completion_tokens": 7
+    },
+    {
+      "id": "py-4",
+      "question": "What novel did Ernest Vincent Wright publish in 1939 and which letter does it avoid?",
+      "answerable": true,
+      "retrieval_ms": 1038.7,
+      "rerank_ms": 997.2,
+      "embed_ms": 32.4,
+      "dense_ms": 3.3,
+      "lexical_ms": 4.6,
+      "top_score": 7.1048,
+      "retrieved": [
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            105,
+            106
+          ],
+          "score": 7.1048
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            467,
+            468
+          ],
+          "score": -9.8508
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            207,
+            208
+          ],
+          "score": -10.101
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Python_2e_SCANNED.pdf",
+        "pages": [
+          106
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Gadsby; the letter \"e\" [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Python_2e_SCANNED.pdf",
+          "page": 106
+        }
+      ],
+      "total_ms": 1507.0,
+      "first_token_ms": 1337.2,
+      "generation_ms": 466.9,
+      "prompt_tokens": 574,
+      "completion_tokens": 13
+    },
+    {
+      "id": "py-5",
+      "question": "In the word histogram program, what does process_line replace hyphens with?",
+      "answerable": true,
+      "retrieval_ms": 1072.9,
+      "rerank_ms": 1032.6,
+      "embed_ms": 31.7,
+      "dense_ms": 2.2,
+      "lexical_ms": 5.3,
+      "top_score": 7.5798,
+      "retrieved": [
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            149,
+            149
+          ],
+          "score": 7.5798
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            149,
+            150
+          ],
+          "score": 3.0629
+        },
+        {
+          "filename": "Think_Python_2e_SCANNED.pdf",
+          "pages": [
+            127,
+            128
+          ],
+          "score": -3.7875
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Python_2e_SCANNED.pdf",
+        "pages": [
+          149
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "process_line replaces hyphens with spaces [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Python_2e_SCANNED.pdf",
+          "page": 149
+        }
+      ],
+      "total_ms": 1527.0,
+      "first_token_ms": 1359.5,
+      "generation_ms": 452.9,
+      "prompt_tokens": 534,
+      "completion_tokens": 13
+    },
+    {
+      "id": "stats-1",
+      "question": "What does the Extend method of HazardFunction do?",
+      "answerable": true,
+      "retrieval_ms": 1135.7,
+      "rerank_ms": 1099.7,
+      "embed_ms": 28.1,
+      "dense_ms": 3.0,
+      "lexical_ms": 3.6,
+      "top_score": 6.6598,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            229,
+            229
+          ],
+          "score": 6.6598
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            218,
+            218
+          ],
+          "score": -2.1488
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            219,
+            219
+          ],
+          "score": -2.4689
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Stats_2e.pdf",
+        "pages": [
+          229
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The Extend method of HazardFunction copies the tail of another longer HazardFunction by selecting values from the other that come after a specified last index in self.series and appending them to self.series [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Stats_2e.pdf",
+          "page": 229
+        }
+      ],
+      "total_ms": 1994.1,
+      "first_token_ms": 1406.3,
+      "generation_ms": 856.8,
+      "prompt_tokens": 554,
+      "completion_tokens": 41
+    },
+    {
+      "id": "stats-2",
+      "question": "Using isfirst as the explanatory variable, what is the difference in birth weight between first babies and others?",
+      "answerable": true,
+      "retrieval_ms": 1041.0,
+      "rerank_ms": 984.3,
+      "embed_ms": 31.2,
+      "dense_ms": 2.8,
+      "lexical_ms": 21.5,
+      "top_score": 7.6464,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            176,
+            177
+          ],
+          "score": 7.6464
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            176,
+            177
+          ],
+          "score": 5.9347
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            179,
+            180
+          ],
+          "score": 4.6506
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Stats_2e.pdf",
+        "pages": [
+          177
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "-0.125 [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Stats_2e.pdf",
+          "page": 177
+        }
+      ],
+      "total_ms": 1765.0,
+      "first_token_ms": 1625.5,
+      "generation_ms": 722.8,
+      "prompt_tokens": 1274,
+      "completion_tokens": 10
+    },
+    {
+      "id": "stats-3",
+      "question": "For the sample [1, 2, 2, 3, 5], what is CDF(2)?",
+      "answerable": true,
+      "retrieval_ms": 1506.6,
+      "rerank_ms": 1445.0,
+      "embed_ms": 33.9,
+      "dense_ms": 2.8,
+      "lexical_ms": 23.4,
+      "top_score": 6.7901,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            68,
+            68
+          ],
+          "score": 6.7901
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            69,
+            69
+          ],
+          "score": 1.2962
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            1028,
+            1028
+          ],
+          "score": 0.2832
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Stats_2e.pdf",
+        "pages": [
+          68
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "CDF(2) = 0.6 [1]",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Stats_2e.pdf",
+          "page": 68
+        }
+      ],
+      "total_ms": 1951.3,
+      "first_token_ms": 1783.5,
+      "generation_ms": 442.9,
+      "prompt_tokens": 553,
+      "completion_tokens": 13
+    },
+    {
+      "id": "stats-4",
+      "question": "What is the R^2 of the birth weight model that includes isfirst, agepreg and agepreg2?",
+      "answerable": true,
+      "retrieval_ms": 1174.5,
+      "rerank_ms": 1121.7,
+      "embed_ms": 33.9,
+      "dense_ms": 3.0,
+      "lexical_ms": 13.8,
+      "top_score": 7.2918,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            176,
+            177
+          ],
+          "score": 7.2918
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            178,
+            178
+          ],
+          "score": 4.9785
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            186,
+            187
+          ],
+          "score": 3.4791
+        }
+      ],
+      "relevant_rank": 2,
+      "gold": {
+        "filename": "Think_Stats_2e.pdf",
+        "pages": [
+          178
+        ]
+      },
+      "correct": false,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 2004.8,
+      "first_token_ms": 1818.2,
+      "generation_ms": 828.7,
+      "prompt_tokens": 1450,
+      "completion_tokens": 12
+    },
+    {
+      "id": "stats-5",
+      "question": "Why is dot notation wrong when creating a new column in a pandas DataFrame?",
+      "answerable": true,
+      "retrieval_ms": 1017.9,
+      "rerank_ms": 974.5,
+      "embed_ms": 31.8,
+      "dense_ms": 3.2,
+      "lexical_ms": 7.0,
+      "top_score": 4.2353,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            30,
+            31
+          ],
+          "score": 4.2353
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            25,
+            26
+          ],
+          "score": 0.4216
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            28,
+            29
+          ],
+          "score": -1.0627
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Stats_2e.pdf",
+        "pages": [
+          30
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "Because using dot notation adds an attribute to the DataFrame object, not treating it as a new column, which is incorrect for adding data [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Stats_2e.pdf",
+          "page": 30
+        }
+      ],
+      "total_ms": 1912.2,
+      "first_token_ms": 1477.7,
+      "generation_ms": 892.8,
+      "prompt_tokens": 947,
+      "completion_tokens": 31
+    },
+    {
+      "id": "stats-6",
+      "question": "How many live births does the NSFG codebook table list for the outcome variable?",
+      "answerable": true,
+      "retrieval_ms": 947.9,
+      "rerank_ms": 904.8,
+      "embed_ms": 30.0,
+      "dense_ms": 3.4,
+      "lexical_ms": 7.9,
+      "top_score": 6.4373,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            30,
+            31
+          ],
+          "score": 6.4373
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            33,
+            34
+          ],
+          "score": 3.2827
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            39,
+            40
+          ],
+          "score": 2.5972
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "Think_Stats_2e.pdf",
+        "pages": [
+          30
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "1.7 Validation The Series class provides a method, value_counts, that counts the number of times each value appears [1]. For the published data on the outcome variable, it lists 9148 live births [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "Think_Stats_2e.pdf",
+          "page": 30
+        }
+      ],
+      "total_ms": 2438.4,
+      "first_token_ms": 1710.6,
+      "generation_ms": 1487.6,
+      "prompt_tokens": 1703,
+      "completion_tokens": 46
+    },
+    {
+      "id": "law-1",
+      "question": "In which case did the Supreme Court hold it impermissible for Congress to disturb a final judgment?",
+      "answerable": true,
+      "retrieval_ms": 937.1,
+      "rerank_ms": 883.4,
+      "embed_ms": 34.2,
+      "dense_ms": 4.1,
+      "lexical_ms": 14.4,
+      "top_score": 7.8012,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            713,
+            713
+          ],
+          "score": 7.8012
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            743,
+            743
+          ],
+          "score": -0.3165
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            742,
+            743
+          ],
+          "score": -0.5527
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "US_Constitution_Annotated_2017.pdf",
+        "pages": [
+          713
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "In Plaut v. Spendthrift Farm, Inc., the Supreme Court held it impermissible for Congress to disturb a final judgment [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "US_Constitution_Annotated_2017.pdf",
+          "page": 713
+        }
+      ],
+      "total_ms": 1665.2,
+      "first_token_ms": 1227.0,
+      "generation_ms": 726.8,
+      "prompt_tokens": 477,
+      "completion_tokens": 31
+    },
+    {
+      "id": "law-2",
+      "question": "Which federal act's 1965 and 1969 provisions were at issue when deciding preemption of state common-law claims against a cigarette company?",
+      "answerable": true,
+      "retrieval_ms": 1314.6,
+      "rerank_ms": 1249.3,
+      "embed_ms": 35.0,
+      "dense_ms": 3.2,
+      "lexical_ms": 25.4,
+      "top_score": 4.1208,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            304,
+            305
+          ],
+          "score": 4.1208
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2640,
+            2641
+          ],
+          "score": 4.0895
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            302,
+            303
+          ],
+          "score": -0.6382
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "US_Constitution_Annotated_2017.pdf",
+        "pages": [
+          305
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The 1965 and 1969 provisions from the Federal Cigarette Labeling and Advertising Act were at issue when deciding preemption of state common-law claims against a cigarette company [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "US_Constitution_Annotated_2017.pdf",
+          "page": 305
+        }
+      ],
+      "total_ms": 2914.9,
+      "first_token_ms": 1881.1,
+      "generation_ms": 1598.9,
+      "prompt_tokens": 598,
+      "completion_tokens": 45
+    },
+    {
+      "id": "law-3",
+      "question": "What two-fold purpose does the Commerce Clause serve?",
+      "answerable": true,
+      "retrieval_ms": 1028.0,
+      "rerank_ms": 985.0,
+      "embed_ms": 30.2,
+      "dense_ms": 4.0,
+      "lexical_ms": 7.8,
+      "top_score": 8.9969,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            201,
+            202
+          ],
+          "score": 8.9969
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            258,
+            259
+          ],
+          "score": 1.1273
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            261,
+            261
+          ],
+          "score": 0.7473
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "US_Constitution_Annotated_2017.pdf",
+        "pages": [
+          202
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The Commerce Clause serves a two-fold purpose: it is the direct source of the most important powers that the Federal Government exercises in peacetime, and except for the due process and equal protection clauses of the Fourteenth Amendment, it is the most important limitation imposed by the Constitution on the exercise of state power [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "US_Constitution_Annotated_2017.pdf",
+          "page": 202
+        }
+      ],
+      "total_ms": 2275.1,
+      "first_token_ms": 1317.8,
+      "generation_ms": 1244.8,
+      "prompt_tokens": 566,
+      "completion_tokens": 63
+    },
+    {
+      "id": "law-4",
+      "question": "Approximately how many Commerce Clause cases reached the Supreme Court prior to 1900?",
+      "answerable": true,
+      "retrieval_ms": 1178.6,
+      "rerank_ms": 1121.7,
+      "embed_ms": 32.1,
+      "dense_ms": 4.2,
+      "lexical_ms": 19.2,
+      "top_score": 7.4818,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            201,
+            202
+          ],
+          "score": 7.4818
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            259,
+            260
+          ],
+          "score": -1.2506
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            248,
+            249
+          ],
+          "score": -2.295
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "US_Constitution_Annotated_2017.pdf",
+        "pages": [
+          202
+        ]
+      },
+      "correct": false,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1528.9,
+      "first_token_ms": 1436.1,
+      "generation_ms": 347.8,
+      "prompt_tokens": 574,
+      "completion_tokens": 7
+    },
+    {
+      "id": "law-5",
+      "question": "After Texas v. Johnson, what was the new federal flag protection statute designed to protect?",
+      "answerable": true,
+      "retrieval_ms": 986.8,
+      "rerank_ms": 873.6,
+      "embed_ms": 83.9,
+      "dense_ms": 2.3,
+      "lexical_ms": 25.7,
+      "top_score": 6.4472,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            1390,
+            1390
+          ],
+          "score": 6.4472
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            1388,
+            1389
+          ],
+          "score": 6.1423
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2560,
+            2560
+          ],
+          "score": 1.6083
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "US_Constitution_Annotated_2017.pdf",
+        "pages": [
+          1390
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "The new federal flag protection statute enacted after Texas v. Johnson was designed to protect the \"physical integrity\" of the flag [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "US_Constitution_Annotated_2017.pdf",
+          "page": 1390
+        }
+      ],
+      "total_ms": 1842.3,
+      "first_token_ms": 1481.5,
+      "generation_ms": 852.7,
+      "prompt_tokens": 859,
+      "completion_tokens": 26
+    },
+    {
+      "id": "law-6",
+      "question": "Does the Sixteenth Amendment's authorization to tax income prevent Congress from granting exemptions?",
+      "answerable": true,
+      "retrieval_ms": 1146.6,
+      "rerank_ms": 1091.8,
+      "embed_ms": 29.3,
+      "dense_ms": 4.1,
+      "lexical_ms": 20.3,
+      "top_score": 7.159,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2309,
+            2310
+          ],
+          "score": 7.159
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2297,
+            2301
+          ],
+          "score": 2.6572
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2301,
+            2301
+          ],
+          "score": 2.535
+        }
+      ],
+      "relevant_rank": 1,
+      "gold": {
+        "filename": "US_Constitution_Annotated_2017.pdf",
+        "pages": [
+          2310
+        ]
+      },
+      "correct": true,
+      "hallucinated": false,
+      "refused": false,
+      "unsupported_sentences": [],
+      "citations_total": 1,
+      "citations_correct": 1,
+      "answer": "48 Yes, the authorization contained in the Sixteenth Amendment to tax income \"from whatever source derived\" does not preclude Congress from granting exemptions [1].",
+      "status": "verified",
+      "citations": [
+        {
+          "file": "US_Constitution_Annotated_2017.pdf",
+          "page": 2310
+        }
+      ],
+      "total_ms": 1932.2,
+      "first_token_ms": 1489.1,
+      "generation_ms": 783.8,
+      "prompt_tokens": 657,
+      "completion_tokens": 31
+    },
+    {
+      "id": "none-1",
+      "question": "What is the boiling point of liquid nitrogen?",
+      "answerable": false,
+      "retrieval_ms": 1271.8,
+      "rerank_ms": 1231.0,
+      "embed_ms": 32.1,
+      "dense_ms": 3.2,
+      "lexical_ms": 3.9,
+      "top_score": -11.1151,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            81,
+            82
+          ],
+          "score": -11.1151
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            115,
+            116
+          ],
+          "score": -11.1683
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            90,
+            91
+          ],
+          "score": -11.1943
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1272.7,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-2",
+      "question": "Who won the 2018 FIFA World Cup?",
+      "answerable": false,
+      "retrieval_ms": 2005.7,
+      "rerank_ms": 1863.5,
+      "embed_ms": 29.6,
+      "dense_ms": 109.5,
+      "lexical_ms": 1.5,
+      "top_score": -10.5177,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            11,
+            12
+          ],
+          "score": -10.5177
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            501,
+            501
+          ],
+          "score": -10.8687
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            765,
+            765
+          ],
+          "score": -10.9242
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 2006.4,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-3",
+      "question": "What is the recommended tire pressure for a Boeing 737 main landing gear?",
+      "answerable": false,
+      "retrieval_ms": 979.0,
+      "rerank_ms": 918.1,
+      "embed_ms": 51.8,
+      "dense_ms": 1.9,
+      "lexical_ms": 4.8,
+      "top_score": -5.2973,
+      "retrieved": [
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            190,
+            191
+          ],
+          "score": -5.2973
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            202,
+            203
+          ],
+          "score": -5.8758
+        },
+        {
+          "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+          "pages": [
+            203,
+            204
+          ],
+          "score": -5.9923
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1907.4,
+      "first_token_ms": 1865.4,
+      "generation_ms": 927.0,
+      "prompt_tokens": 1098,
+      "completion_tokens": 12
+    },
+    {
+      "id": "none-4",
+      "question": "What is the maximum fine for a data breach under the GDPR?",
+      "answerable": false,
+      "retrieval_ms": 1411.2,
+      "rerank_ms": 1365.9,
+      "embed_ms": 31.8,
+      "dense_ms": 2.8,
+      "lexical_ms": 9.2,
+      "top_score": -7.3891,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            1665,
+            1666
+          ],
+          "score": -7.3891
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            76,
+            76
+          ],
+          "score": -9.5992
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            1856,
+            1857
+          ],
+          "score": -10.1587
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1412.2,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-5",
+      "question": "How do I configure an NGINX ingress controller in Kubernetes?",
+      "answerable": false,
+      "retrieval_ms": 1625.4,
+      "rerank_ms": 1581.1,
+      "embed_ms": 28.8,
+      "dense_ms": 6.8,
+      "lexical_ms": 6.6,
+      "top_score": -7.4124,
+      "retrieved": [
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            127,
+            128
+          ],
+          "score": -7.4124
+        },
+        {
+          "filename": "Pro_Git_2e.pdf",
+          "pages": [
+            129,
+            129
+          ],
+          "score": -9.083
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            345,
+            345
+          ],
+          "score": -9.7847
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1627.0,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-6",
+      "question": "What was NASA's total budget in fiscal year 2019?",
+      "answerable": false,
+      "retrieval_ms": 1286.5,
+      "rerank_ms": 1230.1,
+      "embed_ms": 38.6,
+      "dense_ms": 13.0,
+      "lexical_ms": 2.7,
+      "top_score": -10.9798,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            131,
+            132
+          ],
+          "score": -10.9798
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            35,
+            35
+          ],
+          "score": -11.0986
+        },
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            131,
+            132
+          ],
+          "score": -11.1214
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1287.5,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-7",
+      "question": "What is the long-term capital gains tax rate in India?",
+      "answerable": false,
+      "retrieval_ms": 1636.2,
+      "rerank_ms": 1532.8,
+      "embed_ms": 95.5,
+      "dense_ms": 2.0,
+      "lexical_ms": 4.9,
+      "top_score": -4.44,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2304,
+            2304
+          ],
+          "score": -4.44
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2310,
+            2311
+          ],
+          "score": -8.0654
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            2307,
+            2307
+          ],
+          "score": -9.0457
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 2534.2,
+      "first_token_ms": 2492.2,
+      "generation_ms": 897.3,
+      "prompt_tokens": 858,
+      "completion_tokens": 12
+    },
+    {
+      "id": "none-8",
+      "question": "What is a good recipe for sourdough bread?",
+      "answerable": false,
+      "retrieval_ms": 1941.2,
+      "rerank_ms": 1898.7,
+      "embed_ms": 36.3,
+      "dense_ms": 2.7,
+      "lexical_ms": 1.7,
+      "top_score": -9.2556,
+      "retrieved": [
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            1913,
+            1914
+          ],
+          "score": -9.2556
+        },
+        {
+          "filename": "US_Constitution_Annotated_2017.pdf",
+          "pages": [
+            1913,
+            1913
+          ],
+          "score": -10.8614
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            969,
+            969
+          ],
+          "score": -11.0002
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1942.0,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-9",
+      "question": "Which Mars rover landed in Jezero crater in 2021?",
+      "answerable": false,
+      "retrieval_ms": 2024.4,
+      "rerank_ms": 1984.9,
+      "embed_ms": 30.4,
+      "dense_ms": 4.9,
+      "lexical_ms": 2.8,
+      "top_score": -7.5652,
+      "retrieved": [
+        {
+          "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "score": -7.5652
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            570,
+            570
+          ],
+          "score": -11.1469
+        },
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            824,
+            824
+          ],
+          "score": -11.1513
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 2025.2,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-10",
+      "question": "What does CVE-2021-44228 exploit in Log4j?",
+      "answerable": false,
+      "retrieval_ms": 1001.0,
+      "rerank_ms": 843.2,
+      "embed_ms": 136.4,
+      "dense_ms": 19.2,
+      "lexical_ms": 0.8,
+      "top_score": -9.2141,
+      "retrieved": [
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            276,
+            277
+          ],
+          "score": -9.2141
+        },
+        {
+          "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+          "pages": [
+            446,
+            446
+          ],
+          "score": -10.0172
+        },
+        {
+          "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+          "pages": [
+            295,
+            296
+          ],
+          "score": -10.1728
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 1002.8,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    },
+    {
+      "id": "none-11",
+      "question": "What port does Redis use by default?",
+      "answerable": false,
+      "retrieval_ms": 1255.8,
+      "rerank_ms": 1193.6,
+      "embed_ms": 27.1,
+      "dense_ms": 4.1,
+      "lexical_ms": 29.7,
+      "top_score": -4.8125,
+      "retrieved": [
+        {
+          "filename": "Dive_into_Deep_Learning.pdf",
+          "pages": [
+            1079,
+            1079
+          ],
+          "score": -4.8125
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            128,
+            128
+          ],
+          "score": -6.3375
+        },
+        {
+          "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+          "pages": [
+            192,
+            192
+          ],
+          "score": -7.5726
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 2221.4,
+      "first_token_ms": 2179.2,
+      "generation_ms": 964.9,
+      "prompt_tokens": 1397,
+      "completion_tokens": 12
+    },
+    {
+      "id": "none-12",
+      "question": "What is the population of Mumbai?",
+      "answerable": false,
+      "retrieval_ms": 943.5,
+      "rerank_ms": 897.4,
+      "embed_ms": 40.4,
+      "dense_ms": 2.5,
+      "lexical_ms": 1.1,
+      "top_score": -10.6182,
+      "retrieved": [
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            88,
+            88
+          ],
+          "score": -10.6182
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            89,
+            89
+          ],
+          "score": -10.8075
+        },
+        {
+          "filename": "Think_Stats_2e.pdf",
+          "pages": [
+            129,
+            130
+          ],
+          "score": -10.8091
+        }
+      ],
+      "correct": true,
+      "hallucinated": false,
+      "refused": true,
+      "unsupported_sentences": [],
+      "citations_total": 0,
+      "citations_correct": 0,
+      "answer": "I could not find this in the documents.",
+      "status": "refused",
+      "citations": [],
+      "total_ms": 944.2,
+      "first_token_ms": null,
+      "generation_ms": 0.0,
+      "prompt_tokens": null,
+      "completion_tokens": null
+    }
+  ]
+}

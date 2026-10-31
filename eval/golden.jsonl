@@ -1,0 +1,69 @@
+{"id":"d2l-1","question":"To what length are IMDb reviews truncated or padded in the sentiment analysis preprocessing?","filename":"Dive_into_Deep_Learning.pdf","pages":[787],"key":[["500"]]}
+{"id":"d2l-2","question":"In the from-scratch MLP on Fashion-MNIST, how many input features, output classes and hidden units are used?","filename":"Dive_into_Deep_Learning.pdf","pages":[216],"key":[["784"],["10"],["256"]]}
+{"id":"d2l-3","question":"How are missing values marked in the Kaggle house price dataset?","filename":"Dive_into_Deep_Learning.pdf","pages":[241],"key":[["\"na\"","“na”","'na'"," na","na ["]]}
+{"id":"d2l-4","question":"What does a Bernoulli random variable encode?","filename":"Dive_into_Deep_Learning.pdf","pages":[1025],"key":[["coin flip"]]}
+{"id":"d2l-5","question":"What does the configure_optimizers method of LinearRegressionScratch return?","filename":"Dive_into_Deep_Learning.pdf","pages":[145],"key":[["SGD"]]}
+{"id":"faa-1","question":"What errors do the best INS/IRS systems display after flights across the North Atlantic?","filename":"FAA_Instrument_Flying_Handbook_8083-15B.pdf","pages":[278],"key":[["0.1"],["0.4"]]}
+{"id":"faa-2","question":"If a vertical speed indicator pointer is aligned with .5, how fast is the aircraft climbing?","filename":"FAA_Instrument_Flying_Handbook_8083-15B.pdf","pages":[139],"key":[["500"]]}
+{"id":"faa-3","question":"Does a turn coordinator sense pitch?","filename":"FAA_Instrument_Flying_Handbook_8083-15B.pdf","pages":[117],"key":[["not sense","does not","no pitch","not"]]}
+{"id":"faa-4","question":"When flying a 10 DME arc outbound, what is the lead point distance?","filename":"FAA_Instrument_Flying_Handbook_8083-15B.pdf","pages":[261],"key":[["9.5"]]}
+{"id":"faa-5","question":"What equipment does area navigation (RNAV) include?","filename":"FAA_Instrument_Flying_Handbook_8083-15B.pdf","pages":[265],"key":[["VOR/DME"],["LORAN"],["GPS"]]}
+{"id":"faa-6","question":"What is the function of an Attitude and Heading Reference System?","filename":"FAA_Instrument_Flying_Handbook_8083-15B.pdf","pages":[117],"key":[["level"],["north"]]}
+{"id":"nasa-1","question":"Which NASA procedural requirement governs retention of technical data beyond system retirement?","filename":"NASA_Systems_Engineering_Handbook_Rev2.pdf","pages":[161],"key":[["1441.1"]]}
+{"id":"nasa-2","question":"Which product form is identical to the flight unit but may be subjected to extreme environments?","filename":"NASA_Systems_Engineering_Handbook_Rev2.pdf","pages":[137],"key":[["qualification"]]}
+{"id":"nasa-3","question":"What do thread tests exercise during Phase E product verification?","filename":"NASA_Systems_Engineering_Handbook_Rev2.pdf","pages":[267],"key":[["specific tasks"]]}
+{"id":"nasa-4","question":"What is the relevant environment in NASA product verification?","filename":"NASA_Systems_Engineering_Handbook_Rev2.pdf","pages":[137],"key":[["subset"]]}
+{"id":"nasa-5","question":"What is the risk when products used in Phase D integration and test and Phase E operations are formatted differently?","filename":"NASA_Systems_Engineering_Handbook_Rev2.pdf","pages":[265],"key":[["duplication","cost"]]}
+{"id":"nasa-6","question":"What does initial technical planning establish at the beginning of a project?","filename":"NASA_Systems_Engineering_Handbook_Rev2.pdf","pages":[127],"key":[["team members"],["roles"]]}
+{"id":"scrm-1","question":"What should a C-SCRM Risk Response Framework include?","filename":"NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf","pages":[303],"key":[["threat source"]]}
+{"id":"scrm-2","question":"In the PM-11 supplemental guidance, what C-SCRM activity is given as an example for a system designed for easy removal and replacement of failed components?","filename":"NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf","pages":[136],"key":[["spare parts"]]}
+{"id":"scrm-3","question":"Which levels does the PM-10 authorization process supplemental guidance apply to?","filename":"NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf","pages":[136],"key":[["1, 2","1 and 2","Levels 1"]]}
+{"id":"scrm-4","question":"Which table in NIST SP 800-161 holds the Information Gathering and Scoping Analysis sample text?","filename":"NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf","pages":[232],"key":[["D-13"]]}
+{"id":"scrm-5","question":"What information is added to the cybersecurity risk register (CSRR)?","filename":"NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf","pages":[28],"key":[["risk priorities"],["risk response"]]}
+{"id":"sca-1","question":"What does IA-12(01) require of the registration process for logical access accounts?","filename":"NIST_SP_800-53A_r5_Security_Control_Assessment.pdf","pages":[283],"key":[["supervisor"]]}
+{"id":"sca-2","question":"Where was control enhancement SI-07(13) moved to?","filename":"NIST_SP_800-53A_r5_Security_Control_Assessment.pdf","pages":[647],"key":[["CM-07(07)"]]}
+{"id":"sca-3","question":"In CA-07(03), what is trend analysis employed to determine?","filename":"NIST_SP_800-53A_r5_Security_Control_Assessment.pdf","pages":[182],"key":[["continuous monitoring"]]}
+{"id":"sca-4","question":"What must be identified under CP-02(08) Identify Critical Assets?","filename":"NIST_SP_800-53A_r5_Security_Control_Assessment.pdf","pages":[232],"key":[["critical system assets"]]}
+{"id":"sca-5","question":"According to PM-01, what does the information security program plan provide an overview of?","filename":"NIST_SP_800-53A_r5_Security_Control_Assessment.pdf","pages":[383],"key":[["requirements"]]}
+{"id":"sca-6","question":"Under SA-15, what must the developer of a system be required to follow?","filename":"NIST_SP_800-53A_r5_Security_Control_Assessment.pdf","pages":[513],"key":[["documented development process"]]}
+{"id":"ot-1","question":"What three tiers does the Industry IoT Consortium propose for IIoT system architecture?","filename":"NIST_SP_800-82_r3_OT_Security_Guide.pdf","pages":[43],"key":[["edge"],["platform"],["enterprise"]]}
+{"id":"ot-2","question":"What techniques can implement temporary remote access to an OT system?","filename":"NIST_SP_800-82_r3_OT_Security_Guide.pdf","pages":[140],"key":[["screen-sharing","screen sharing"],["modem"],["VPN"]]}
+{"id":"ot-3","question":"How does the NIST SP 800-82 glossary define a disaster recovery plan?","filename":"NIST_SP_800-82_r3_OT_Security_Guide.pdf","pages":[179],"key":[["written plan"]]}
+{"id":"ot-4","question":"What are the most common functions of a building automation system?","filename":"NIST_SP_800-82_r3_OT_Security_Guide.pdf","pages":[39],"key":[["energy consumption"]]}
+{"id":"ot-5","question":"What are examples of media assets in OT physical security guidance?","filename":"NIST_SP_800-82_r3_OT_Security_Guide.pdf","pages":[136],"key":[["USB"],["SD cards"]]}
+{"id":"ot-6","question":"How does NIST SP 800-82 define a discrete process?","filename":"NIST_SP_800-82_r3_OT_Security_Guide.pdf","pages":[179],"key":[["unique identity"]]}
+{"id":"git-1","question":"What is the only flag that makes the git reset command dangerous?","filename":"Pro_Git_2e.pdf","pages":[269],"key":[["--hard"]]}
+{"id":"git-2","question":"Which option should you add to ssh-keygen when protecting a key with a password?","filename":"Pro_Git_2e.pdf","pages":[119],"key":[["-o"]]}
+{"id":"git-3","question":"How many .gitignore files does the Linux kernel source repository have?","filename":"Pro_Git_2e.pdf","pages":[39],"key":[["206"]]}
+{"id":"git-4","question":"Where is the first place Git looks for configuration values?","filename":"Pro_Git_2e.pdf","pages":[342],"key":[["/etc/gitconfig"]]}
+{"id":"git-5","question":"Which two commands are equivalent to running git svn clone?","filename":"Pro_Git_2e.pdf","pages":[375],"key":[["git svn init"],["git svn fetch"]]}
+{"id":"git-6","question":"What character delimits the fields in the example ACL file for a Git server hook?","filename":"Pro_Git_2e.pdf","pages":[366],"key":[["pipe","|"]]}
+{"id":"py-1","question":"Why is the first element of rank_names set to None in the Card class?","filename":"Think_Python_2e_SCANNED.pdf","pages":[195],"key":[["rank zero","rank of zero","rank value of zero"]]}
+{"id":"py-2","question":"What is wrapping a piece of code up in a function called?","filename":"Think_Python_2e_SCANNED.pdf","pages":[54],"key":[["encapsulation"]]}
+{"id":"py-3","question":"What is the special name for the topmost frame in a Python stack diagram?","filename":"Think_Python_2e_SCANNED.pdf","pages":[45],"key":[["__main__","main"]]}
+{"id":"py-4","question":"What novel did Ernest Vincent Wright publish in 1939 and which letter does it avoid?","filename":"Think_Python_2e_SCANNED.pdf","pages":[106],"key":[["Gadsby"],["e"]]}
+{"id":"py-5","question":"In the word histogram program, what does process_line replace hyphens with?","filename":"Think_Python_2e_SCANNED.pdf","pages":[149],"key":[["space"]]}
+{"id":"stats-1","question":"What does the Extend method of HazardFunction do?","filename":"Think_Stats_2e.pdf","pages":[229],"key":[["tail","appends","later"]]}
+{"id":"stats-2","question":"Using isfirst as the explanatory variable, what is the difference in birth weight between first babies and others?","filename":"Think_Stats_2e.pdf","pages":[177],"key":[["0.125"]]}
+{"id":"stats-3","question":"For the sample [1, 2, 2, 3, 5], what is CDF(2)?","filename":"Think_Stats_2e.pdf","pages":[68],"key":[["0.6"]]}
+{"id":"stats-4","question":"What is the R^2 of the birth weight model that includes isfirst, agepreg and agepreg2?","filename":"Think_Stats_2e.pdf","pages":[178],"key":[["0.007462"]]}
+{"id":"stats-5","question":"Why is dot notation wrong when creating a new column in a pandas DataFrame?","filename":"Think_Stats_2e.pdf","pages":[30],"key":[["attribute"]]}
+{"id":"stats-6","question":"How many live births does the NSFG codebook table list for the outcome variable?","filename":"Think_Stats_2e.pdf","pages":[30],"key":[["9148","9,148"]]}
+{"id":"law-1","question":"In which case did the Supreme Court hold it impermissible for Congress to disturb a final judgment?","filename":"US_Constitution_Annotated_2017.pdf","pages":[713],"key":[["Plaut"]]}
+{"id":"law-2","question":"Which federal act's 1965 and 1969 provisions were at issue when deciding preemption of state common-law claims against a cigarette company?","filename":"US_Constitution_Annotated_2017.pdf","pages":[305],"key":[["Federal Cigarette Labeling"]]}
+{"id":"law-3","question":"What two-fold purpose does the Commerce Clause serve?","filename":"US_Constitution_Annotated_2017.pdf","pages":[202],"key":[["source"],["limitation"]]}
+{"id":"law-4","question":"Approximately how many Commerce Clause cases reached the Supreme Court prior to 1900?","filename":"US_Constitution_Annotated_2017.pdf","pages":[202],"key":[["1400","1,400"]]}
+{"id":"law-5","question":"After Texas v. Johnson, what was the new federal flag protection statute designed to protect?","filename":"US_Constitution_Annotated_2017.pdf","pages":[1390],"key":[["physical integrity"]]}
+{"id":"law-6","question":"Does the Sixteenth Amendment's authorization to tax income prevent Congress from granting exemptions?","filename":"US_Constitution_Annotated_2017.pdf","pages":[2310],"key":[["exemptions"]]}
+{"id":"none-1","question":"What is the boiling point of liquid nitrogen?","answerable":false}
+{"id":"none-2","question":"Who won the 2018 FIFA World Cup?","answerable":false}
+{"id":"none-3","question":"What is the recommended tire pressure for a Boeing 737 main landing gear?","answerable":false}
+{"id":"none-4","question":"What is the maximum fine for a data breach under the GDPR?","answerable":false}
+{"id":"none-5","question":"How do I configure an NGINX ingress controller in Kubernetes?","answerable":false}
+{"id":"none-6","question":"What was NASA's total budget in fiscal year 2019?","answerable":false}
+{"id":"none-7","question":"What is the long-term capital gains tax rate in India?","answerable":false}
+{"id":"none-8","question":"What is a good recipe for sourdough bread?","answerable":false}
+{"id":"none-9","question":"Which Mars rover landed in Jezero crater in 2021?","answerable":false}
+{"id":"none-10","question":"What does CVE-2021-44228 exploit in Log4j?","answerable":false}
+{"id":"none-11","question":"What port does Redis use by default?","answerable":false}
+{"id":"none-12","question":"What is the population of Mumbai?","answerable":false}

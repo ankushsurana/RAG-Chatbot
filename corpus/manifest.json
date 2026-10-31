@@ -1,0 +1,55 @@
+{
+  "documents": [
+    {
+      "filename": "NIST_SP_800-53A_r5_Security_Control_Assessment.pdf",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf",
+      "license": "US Government work (public domain)"
+    },
+    {
+      "filename": "NIST_SP_800-82_r3_OT_Security_Guide.pdf",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf",
+      "license": "US Government work (public domain)"
+    },
+    {
+      "filename": "NIST_SP_800-161_r1_Supply_Chain_Risk_Management.pdf",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-161r1.pdf",
+      "license": "US Government work (public domain)"
+    },
+    {
+      "filename": "NASA_Systems_Engineering_Handbook_Rev2.pdf",
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
+      "license": "US Government work (public domain)"
+    },
+    {
+      "filename": "FAA_Instrument_Flying_Handbook_8083-15B.pdf",
+      "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/FAA-H-8083-15B.pdf",
+      "license": "US Government work (public domain)"
+    },
+    {
+      "filename": "US_Constitution_Annotated_2017.pdf",
+      "url": "https://www.govinfo.gov/content/pkg/GPO-CONAN-2017/pdf/GPO-CONAN-2017.pdf",
+      "license": "US Government work (public domain)"
+    },
+    {
+      "filename": "Think_Stats_2e.pdf",
+      "url": "https://greenteapress.com/thinkstats2/thinkstats2.pdf",
+      "license": "CC BY-NC-SA 4.0"
+    },
+    {
+      "filename": "Pro_Git_2e.pdf",
+      "url": "https://github.com/progit/progit2/releases/download/2.1.449/progit.pdf",
+      "license": "CC BY-NC-SA 3.0"
+    },
+    {
+      "filename": "Dive_into_Deep_Learning.pdf",
+      "url": "https://d2l.ai/d2l-en.pdf",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "filename": "Think_Python_2e_SCANNED.pdf",
+      "url": "https://greenteapress.com/thinkpython2/thinkpython2.pdf",
+      "license": "CC BY-NC 3.0",
+      "rasterize": true
+    }
+  ]
+}
