@@ -93,6 +93,7 @@ class Settings(BaseSettings):
     chat_db_file: Path | None = None
     api_host: str = "127.0.0.1"
     api_port: int = 8000
+    public_questions_per_minute: int = 12
 
     @property
     def pdf_dir(self) -> Path:

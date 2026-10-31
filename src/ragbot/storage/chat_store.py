@@ -32,6 +32,10 @@ CREATE INDEX IF NOT EXISTS turns_conversation ON turns(conversation_id, id);
 
 _TITLE_MAX_CHARS = 60
 
+# The owner ids a request may act for. Chats made before visitors had ids have an empty owner.
+Owners = tuple[str, ...]
+NO_OWNER: Owners = ("",)
+
 
 @dataclass(slots=True)
 class Turn:
@@ -49,6 +53,13 @@ class ChatStore:
         path.parent.mkdir(parents=True, exist_ok=True)
         with self._connection as connection:
             connection.executescript(_SCHEMA)
+            columns = {
+                row["name"] for row in connection.execute("PRAGMA table_info(conversations)")
+            }
+            if "owner" not in columns:
+                connection.execute(
+                    "ALTER TABLE conversations ADD COLUMN owner TEXT NOT NULL DEFAULT ''"
+                )
 
     @property
     def _connection(self) -> sqlite3.Connection:
@@ -61,15 +72,18 @@ class ChatStore:
             self._local.connection = connection
         return connection
 
-    def list_conversations(self) -> list[dict]:
+    def list_conversations(self, owners: Owners = NO_OWNER) -> list[dict]:
         rows = self._connection.execute(
-            "SELECT id, title, updated_at FROM conversations ORDER BY updated_at DESC, id"
+            f"SELECT id, title, updated_at FROM conversations WHERE owner IN ({_marks(owners)}) "
+            "ORDER BY updated_at DESC, id",
+            owners,
         ).fetchall()
         return [dict(row) for row in rows]
 
-    def conversation_exists(self, conversation_id: str) -> bool:
+    def conversation_exists(self, conversation_id: str, owners: Owners = NO_OWNER) -> bool:
         row = self._connection.execute(
-            "SELECT 1 FROM conversations WHERE id = ?", (conversation_id,)
+            f"SELECT 1 FROM conversations WHERE id = ? AND owner IN ({_marks(owners)})",
+            (conversation_id, *owners),
         ).fetchone()
         return row is not None
 
@@ -91,18 +105,23 @@ class ChatStore:
         ]
 
     def add_turn(
-        self, conversation_id: str | None, question: str, scope: str, answer: Answer
+        self,
+        conversation_id: str | None,
+        question: str,
+        scope: str,
+        answer: Answer,
+        owner: str = "",
     ) -> tuple[str, int]:
         """Stores a turn, creating the conversation if needed. Returns (conversation id, turn id)."""
         now = datetime.now(UTC).isoformat()
-        stored = answer.model_dump_json(exclude={"retrieved"})
+        stored = answer.model_dump_json(exclude={"retrieved": {"__all__": {"spans"}}})
         with self._connection as connection:
             if conversation_id is None:
                 conversation_id = uuid.uuid4().hex
                 connection.execute(
-                    "INSERT INTO conversations (id, title, created_at, updated_at) "
-                    "VALUES (?, ?, ?, ?)",
-                    (conversation_id, _make_title(question), now, now),
+                    "INSERT INTO conversations (id, title, created_at, updated_at, owner) "
+                    "VALUES (?, ?, ?, ?, ?)",
+                    (conversation_id, _make_title(question), now, now, owner),
                 )
             else:
                 connection.execute(
@@ -115,19 +134,26 @@ class ChatStore:
             )
         return conversation_id, int(cursor.lastrowid)
 
-    def delete_conversation(self, conversation_id: str) -> bool:
+    def delete_conversation(self, conversation_id: str, owners: Owners = NO_OWNER) -> bool:
         with self._connection as connection:
             cursor = connection.execute(
-                "DELETE FROM conversations WHERE id = ?", (conversation_id,)
+                f"DELETE FROM conversations WHERE id = ? AND owner IN ({_marks(owners)})",
+                (conversation_id, *owners),
             )
         return cursor.rowcount > 0
 
-    def set_rating(self, turn_id: int, rating: str | None) -> bool:
+    def set_rating(self, turn_id: int, rating: str | None, owners: Owners = NO_OWNER) -> bool:
         with self._connection as connection:
             cursor = connection.execute(
-                "UPDATE turns SET rating = ? WHERE id = ?", (rating, turn_id)
+                "UPDATE turns SET rating = ? WHERE id = ? AND conversation_id IN "
+                f"(SELECT id FROM conversations WHERE owner IN ({_marks(owners)}))",
+                (rating, turn_id, *owners),
             )
         return cursor.rowcount > 0
+
+
+def _marks(owners: Owners) -> str:
+    return ",".join("?" * len(owners))
 
 
 def _make_title(question: str) -> str:

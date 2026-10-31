@@ -33,6 +33,7 @@
       <button id="new-chat" class="new-chat" type="button"><svg class="icon"><use href="#i-new"/></svg>New chat</button>
       <h2 class="history-label">Chats</h2>
       <div id="history" class="history"></div>
+      <button id="open-pipeline" class="sidebar-link" type="button"><svg class="icon"><use href="#i-file"/></svg>How it works</button>
     </aside>
     <div id="scrim" class="scrim" hidden></div>
 
@@ -73,6 +74,16 @@
       <p id="viewer-status" class="viewer-status" hidden></p>
       <img id="viewer-image" alt="Cited PDF page with the source passage highlighted">
     </div>
+  </dialog>
+  <dialog id="pipeline" class="viewer pipeline-dialog" aria-labelledby="pipeline-title">
+    <header>
+      <div>
+        <strong id="pipeline-title">How the PDFs became searchable</strong>
+        <span>The ingestion pipeline, with the real numbers for this library</span>
+      </div>
+      <button id="pipeline-close" class="icon-button" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+    </header>
+    <div id="pipeline-body" class="viewer-body pipeline-body"></div>
   </dialog>
   <script src="app.js"></script>
 </body>

@@ -140,6 +140,42 @@ button { cursor: pointer; }
 .feedback[aria-pressed="true"] .icon { fill: rgb(127 176 255 / 25%); }
 .elapsed { margin-left: 8px; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 
+/* Retrieved passages */
+.evidence { border: 1px solid var(--line); border-radius: 12px; background: rgb(31 33 37 / 70%); }
+.evidence summary { padding: 8px 12px; font-size: 0.86rem; color: var(--muted); cursor: pointer; }
+.evidence summary:hover { color: var(--ink); }
+.evidence-lead { padding: 0 12px 8px; font-size: 0.8rem; color: var(--muted); }
+.chunks { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0 12px 12px; list-style: none; }
+.chunk { display: flex; flex-direction: column; gap: 4px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; min-width: 0; }
+.chunk.used { border-color: #3f5f96; background: rgb(40 58 94 / 30%); }
+.chunk-head { display: flex; justify-content: space-between; gap: 10px; font-size: 0.84rem; }
+.chunk-name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.chunk-page { flex: none; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chunk-score { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 8px; font-size: 0.76rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chunk-bar { height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.chunk-bar span { display: block; height: 100%; background: var(--accent); }
+.chunk-ranks { font-size: 0.74rem; color: var(--muted); }
+.chunk-text { font-size: 0.82rem; line-height: 1.5; overflow-wrap: anywhere; }
+
+/* How it works */
+.sidebar-link { display: flex; align-items: center; gap: 10px; flex: none; padding: 9px 14px; border: 0; border-radius: 20px; background: transparent; color: var(--muted); font-size: 0.9rem; text-align: left; }
+.sidebar-link:hover { background: var(--rail-hover); color: var(--ink); }
+.sidebar-link .icon { width: 17px; height: 17px; }
+.pipeline-body { display: flex; flex-direction: column; gap: 14px; }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: flow; }
+.flow-step { position: relative; display: flex; flex-direction: column; gap: 3px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); counter-increment: flow; }
+.flow-name { font-size: 0.78rem; font-weight: 600; color: var(--accent); }
+.flow-name::before { content: counter(flow) ". "; }
+.flow-value { font: 500 1.5rem/1.2 var(--font-display); color: var(--ink-strong); font-variant-numeric: tabular-nums; }
+.flow-note { font-size: 0.78rem; line-height: 1.35; color: var(--muted); }
+.pipeline-heading { margin: 4px 0 0; font-size: 0.92rem; font-weight: 600; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 11px; }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.table-wrap th, .table-wrap td { padding: 7px 11px; border-bottom: 1px solid var(--line); text-align: left; }
+.table-wrap th { font-size: 0.74rem; font-weight: 600; color: var(--muted); }
+.table-wrap tbody tr:last-child td { border-bottom: 0; }
+.table-wrap .num { text-align: right; font-variant-numeric: tabular-nums; }
+
 /* Composer */
 .composer-area {
   padding-block: 6px 18px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));

@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import json
 import logging
+import re
+import threading
+import time
+from collections import defaultdict, deque
 from collections.abc import Iterator
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -21,12 +25,14 @@ from ragbot.config import Settings, get_settings
 from ragbot.domain import Answer, DocumentRecord, RetrievalResult
 from ragbot.generation.llm import LLMError
 from ragbot.service import build_service
-from ragbot.storage.chat_store import ChatStore
+from ragbot.storage.chat_store import ChatStore, Owners
 
 logger = logging.getLogger(__name__)
 
 _STATIC_DIR = Path(__file__).parent / "static"
 _PREVIEW_DPI = 110
+_VALID_CLIENT_ID = re.compile(r"[A-Za-z0-9-]{8,64}")
+_RATE_WINDOW_SECONDS = 60.0
 _HIGHLIGHT_COLOR = (1.0, 0.82, 0.2)
 
 
@@ -46,8 +52,51 @@ class RetrieveRequest(BaseModel):
     doc_ids: list[str] | None = None
 
 
+class RateLimiter:
+    """Allows each public visitor a limited number of questions per minute."""
+
+    def __init__(self, limit: int) -> None:
+        self._limit = limit
+        self._lock = threading.Lock()
+        self._times: defaultdict[str, deque[float]] = defaultdict(deque)
+
+    def allow(self, key: str, now: float | None = None) -> bool:
+        now = time.monotonic() if now is None else now
+        with self._lock:
+            times = self._times[key]
+            while times and now - times[0] >= _RATE_WINDOW_SECONDS:
+                times.popleft()
+            if len(times) >= self._limit:
+                return False
+            times.append(now)
+            return True
+
+
+def _public_address(request: Request) -> str | None:
+    """Cloudflare's tunnel sets this header, so its presence marks a visitor from the internet."""
+    return request.headers.get("cf-connecting-ip")
+
+
+def request_owners(request: Request) -> Owners:
+    """Public visitors act only for their own browser. The local user also keeps older chats."""
+    header = request.headers.get("x-client-id", "")
+    client = header if _VALID_CLIENT_ID.fullmatch(header) else None
+    address = _public_address(request)
+    if address:
+        return (client or f"address-{address}",)
+    return (client, "") if client else ("",)
+
+
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or get_settings()
+    limiter = RateLimiter(settings.public_questions_per_minute)
+
+    def check_fair_use(request: Request) -> None:
+        address = _public_address(request)
+        if address and not limiter.allow(address):
+            raise HTTPException(
+                429, "Too many questions right now. Please wait a minute and try again."
+            )
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -90,24 +139,28 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.post("/api/chat", response_model=Answer)
     def chat(body: ChatRequest, request: Request) -> dict:
-        return request.app.state.chat.answer(body.question, body.conversation_id, body.doc_ids)
+        check_fair_use(request)
+        return request.app.state.chat.answer(
+            body.question, body.conversation_id, body.doc_ids, request_owners(request)
+        )
 
     @app.post("/api/chat/stream")
     def chat_stream(body: ChatRequest, request: Request) -> StreamingResponse:
+        check_fair_use(request)
         return StreamingResponse(
-            _sse_events(request.app.state.chat, body),
+            _sse_events(request.app.state.chat, body, request_owners(request)),
             media_type="text/event-stream",
             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
         )
 
     @app.get("/api/conversations")
     def conversations(request: Request) -> list[dict]:
-        return request.app.state.chat_store.list_conversations()
+        return request.app.state.chat_store.list_conversations(request_owners(request))
 
     @app.get("/api/conversations/{conversation_id}")
     def conversation(conversation_id: str, request: Request) -> list[dict]:
         store = request.app.state.chat_store
-        if not store.conversation_exists(conversation_id):
+        if not store.conversation_exists(conversation_id, request_owners(request)):
             raise HTTPException(404, "Chat not found")
         return [
             {
@@ -121,13 +174,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.delete("/api/conversations/{conversation_id}", status_code=204)
     def delete_conversation(conversation_id: str, request: Request) -> Response:
-        if not request.app.state.chat_store.delete_conversation(conversation_id):
+        store = request.app.state.chat_store
+        if not store.delete_conversation(conversation_id, request_owners(request)):
             raise HTTPException(404, "Chat not found")
         return Response(status_code=204)
 
     @app.post("/api/turns/{turn_id}/feedback")
     def feedback(turn_id: int, body: FeedbackRequest, request: Request) -> dict:
-        if not request.app.state.chat_store.set_rating(turn_id, body.rating):
+        store = request.app.state.chat_store
+        if not store.set_rating(turn_id, body.rating, request_owners(request)):
             raise HTTPException(404, "Message not found")
         return {"turn_id": turn_id, "rating": body.rating}
 
@@ -170,9 +225,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     return app
 
 
-def _sse_events(chat: ChatService, body: ChatRequest) -> Iterator[str]:
+def _sse_events(chat: ChatService, body: ChatRequest, owners: Owners) -> Iterator[str]:
     try:
-        for event in chat.stream(body.question, body.conversation_id, body.doc_ids):
+        for event in chat.stream(body.question, body.conversation_id, body.doc_ids, owners):
             yield f"event: {event.type}\ndata: {json.dumps(event.payload)}\n\n"
     except LLMError as error:
         logger.warning("generation failed: %s", error)

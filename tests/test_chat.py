@@ -119,7 +119,16 @@ class TestContext:
 
     @pytest.mark.parametrize(
         "question",
-        ["Why is it dangerous?", "Explain more", "What about the second one?", "And then?", "more"],
+        [
+            "Why is it dangerous?",
+            "Explain more",
+            "What about the second one?",
+            "And then?",
+            "more",
+            "What is an example of one?",
+            "Give me an example",
+            "Is there another way?",
+        ],
     )
     def test_detects_follow_ups(self, question):
         assert is_follow_up(question)
@@ -198,6 +207,32 @@ class TestDeleteChat:
 
     def test_deleting_unknown_chat_reports_it(self, store):
         assert not store.delete_conversation("nope")
+
+
+class TestVisitorsAreSeparate:
+    ALICE = ("alice-browser",)
+    BOB = ("bob-browser-1",)
+
+    def test_visitor_sees_only_their_own_chats(self, chat, store):
+        mine = chat.answer("What does git reset do?", owners=self.ALICE)["conversation_id"]
+        chat.answer("How do I create a branch in Git?", owners=self.BOB)
+        assert [c["id"] for c in store.list_conversations(self.ALICE)] == [mine]
+
+    def test_visitor_cannot_continue_someone_elses_chat(self, chat):
+        theirs = chat.answer("What does git reset do?", owners=self.ALICE)["conversation_id"]
+        result = chat.answer("How do I create a branch in Git?", theirs, owners=self.BOB)
+        assert result["conversation_id"] != theirs
+
+    def test_visitor_cannot_delete_or_rate_someone_elses_chat(self, chat, store):
+        result = chat.answer("What does git reset do?", owners=self.ALICE)
+        assert not store.delete_conversation(result["conversation_id"], self.BOB)
+        assert not store.set_rating(result["turn_id"], "down", self.BOB)
+        assert store.turns(result["conversation_id"])[0].rating is None
+
+    def test_local_user_keeps_older_chats_without_an_owner(self, chat, store):
+        old = chat.answer("What does git reset do?")["conversation_id"]
+        assert old in [c["id"] for c in store.list_conversations(("my-browser", ""))]
+        assert old not in [c["id"] for c in store.list_conversations(self.BOB)]
 
 
 class TestFeedback:

@@ -17,7 +17,7 @@ from collections.abc import Iterator
 from ragbot.domain import Answer, Citation, Timings, Verification
 from ragbot.generation.prompts import build_rewrite_messages
 from ragbot.service import RagService, StreamEvent
-from ragbot.storage.chat_store import ChatStore, Turn
+from ragbot.storage.chat_store import NO_OWNER, ChatStore, Owners, Turn
 
 _SMALL_TALK = (
     (
@@ -64,7 +64,8 @@ _ASKS_SUMMARY_OF_CHAT = re.compile(
 _FOLLOW_UP = re.compile(
     r"^(?:and|also|but|so|what about|how about|why|how so|then|more|tell me more|explain|elaborate"
     r"|give (?:me )?an example|for example|what else|is that|are they|can you)\b"
-    r"|\b(?:it|its|they|them|their|this|that|these|those|he|she|his|her|the (?:first|second|third|"
+    r"|\b(?:it|its|they|them|their|this|that|these|those|he|she|his|her|ones?|another|others?|there"
+    r"|examples?|the (?:first|second|third|"
     r"last|former|latter)(?: one)?|above|same|previous)\b",
     re.I,
 )
@@ -85,9 +86,10 @@ class ChatService:
         question: str,
         conversation_id: str | None = None,
         doc_ids: list[str] | None = None,
+        owners: Owners = NO_OWNER,
     ) -> Iterator[StreamEvent]:
         question = " ".join(question.split())
-        if conversation_id and not self._store.conversation_exists(conversation_id):
+        if conversation_id and not self._store.conversation_exists(conversation_id, owners):
             conversation_id = None
         turns = self._store.turns(conversation_id) if conversation_id else []
         scope = ",".join(sorted(doc_ids or []))
@@ -95,7 +97,7 @@ class ChatService:
         direct = self._direct_answer(question, turns, scope)
         if direct is not None:
             yield StreamEvent("token", {"text": direct.answer})
-            yield self._finish(question, conversation_id, scope, direct)
+            yield self._finish(question, conversation_id, scope, direct, owners)
             return
 
         started = time.perf_counter()
@@ -114,23 +116,31 @@ class ChatService:
             answer.standalone_question = standalone if standalone != question else None
             answer.timings.rewrite_ms = rewrite_ms
             answer.timings.total_ms = round(answer.timings.total_ms + rewrite_ms, 1)
-            yield self._finish(question, conversation_id, scope, answer)
+            yield self._finish(question, conversation_id, scope, answer, owners)
 
     def answer(
         self,
         question: str,
         conversation_id: str | None = None,
         doc_ids: list[str] | None = None,
+        owners: Owners = NO_OWNER,
     ) -> dict:
-        for event in self.stream(question, conversation_id, doc_ids):
+        for event in self.stream(question, conversation_id, doc_ids, owners):
             if event.type == "final":
                 return event.payload
         raise RuntimeError("chat stream ended without a final event")
 
     def _finish(
-        self, question: str, conversation_id: str | None, scope: str, answer: Answer
+        self,
+        question: str,
+        conversation_id: str | None,
+        scope: str,
+        answer: Answer,
+        owners: Owners,
     ) -> StreamEvent:
-        conversation_id, turn_id = self._store.add_turn(conversation_id, question, scope, answer)
+        conversation_id, turn_id = self._store.add_turn(
+            conversation_id, question, scope, answer, owners[0]
+        )
         answer.turn_id = turn_id
         answer.conversation_id = conversation_id
         return StreamEvent("final", answer.model_dump())

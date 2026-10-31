@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import json
 import logging
+import re
+import shutil
+import subprocess
+import threading
 from pathlib import Path
 
 import typer
@@ -116,6 +120,39 @@ def serve(host: str | None = None, port: int | None = None) -> None:
         host=host or settings.api_host,
         port=port or settings.api_port,
     )
+
+
+@app.command()
+def share(port: int | None = None) -> None:
+    """Start the chatbot and a free public link to it (the link lasts until you stop this)."""
+    import uvicorn
+
+    settings = get_settings()
+    port = port or settings.api_port
+    tunnel_tool = shutil.which("cloudflared") or settings.data_dir / "tools" / "cloudflared.exe"
+    if not Path(tunnel_tool).exists():
+        console.print("cloudflared was not found. Put it in data/tools or on your PATH.")
+        raise typer.Exit(code=1)
+
+    tunnel = subprocess.Popen(
+        [str(tunnel_tool), "tunnel", "--no-autoupdate", "--url", f"http://127.0.0.1:{port}"],
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+
+    def announce_link() -> None:
+        for line in tunnel.stderr:
+            match = re.search(r"https://[-a-z0-9]+\.trycloudflare\.com", line)
+            if match:
+                console.print(
+                    f"\n[bold green]Public link:[/bold green] {match.group(0)}\n", soft_wrap=True
+                )
+
+    threading.Thread(target=announce_link, daemon=True).start()
+    try:
+        uvicorn.run("ragbot.api.app:create_app", factory=True, host=settings.api_host, port=port)
+    finally:
+        tunnel.terminate()
 
 
 @app.command()

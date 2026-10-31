@@ -8,6 +8,7 @@ const state = {
   conversationId: null,
   busy: false,
   loadToken: 0,
+  sessionClientId: `session-${Math.random().toString(36).slice(2, 14)}`,
 };
 
 function icon(name) {
@@ -23,10 +24,28 @@ function prettyName(filename) {
   return filename.replace(/\.pdf$/i, "").replace(/_SCANNED$/i, "").replace(/_/g, " ");
 }
 
-async function getJson(url, options) {
+function clientId() {
+  const key = "ragbot-client-id";
+  try {
+    let id = localStorage.getItem(key);
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem(key, id);
+    }
+    return id;
+  } catch {
+    return state.sessionClientId;
+  }
+}
+
+function withClient(headers = {}) {
+  return { ...headers, "X-Client-Id": clientId() };
+}
+
+async function getJson(url, options = {}) {
   let response;
   try {
-    response = await fetch(url, options);
+    response = await fetch(url, { ...options, headers: withClient(options.headers) });
   } catch {
     throw new Error(SERVER_DOWN);
   }
@@ -94,7 +113,7 @@ function renderAnswer(reply, answer, rating = null) {
       </div>`
     : "";
 
-  reply.innerHTML = `<div class="answer">${renderText(answer.answer)}</div>${notes.join("")}${sources}${feedback}`;
+  reply.innerHTML = `<div class="answer">${renderText(answer.answer)}</div>${notes.join("")}${sources}${renderEvidence(answer)}${feedback}`;
 
   const byNumber = new Map(answer.citations.map((citation) => [String(citation.number), citation]));
   reply.querySelectorAll("[data-source]").forEach((button) =>
@@ -106,6 +125,34 @@ function renderAnswer(reply, answer, rating = null) {
   reply.querySelectorAll(".feedback").forEach((button) =>
     button.addEventListener("click", () => sendFeedback(reply, answer.turn_id, button)),
   );
+}
+
+function renderEvidence(answer) {
+  const chunks = answer.retrieved || [];
+  if (!chunks.length) return "";
+  const timings = answer.timings;
+  const stages = [
+    ["Search", timings.retrieval_ms],
+    ["First words", timings.first_token_ms],
+    ["Full answer", timings.total_ms],
+  ].filter(([, value]) => value);
+  return `<details class="evidence">
+    <summary>Top ${chunks.length} retrieved passages</summary>
+    <p class="evidence-lead">Found by meaning search and keyword search, then ranked by a reranker. Highlighted passages were given to the AI model. ${stages.map(([label, value]) => `${label}: ${(value / 1000).toFixed(1)} s`).join(" &middot; ")}</p>
+    <ol class="chunks">${chunks.map((chunk) => {
+      const score = chunk.rerank_score === null ? 0 : 1 / (1 + Math.exp(-chunk.rerank_score));
+      const pages = chunk.page_start === chunk.page_end ? `Page ${chunk.page_start}` : `Pages ${chunk.page_start}-${chunk.page_end}`;
+      return `<li class="chunk ${chunk.used_in_context ? "used" : ""}">
+        <div class="chunk-head">
+          <span class="chunk-name">${escapeHtml(prettyName(chunk.filename))}</span>
+          <span class="chunk-page">${pages}</span>
+        </div>
+        <div class="chunk-score"><span>Match ${Math.round(score * 100)}%</span><div class="chunk-bar"><span style="width:${(score * 100).toFixed(0)}%"></span></div></div>
+        <div class="chunk-ranks">Meaning search ${chunk.dense_rank ? `#${chunk.dense_rank}` : "no match"} &middot; Keyword search ${chunk.lexical_rank ? `#${chunk.lexical_rank}` : "no match"}${chunk.source_number ? ` &middot; Sent to AI as source ${chunk.source_number}` : ""}</div>
+        <p class="chunk-text">${escapeHtml(chunk.text.slice(0, 420))}${chunk.text.length > 420 ? "..." : ""}</p>
+      </li>`;
+    }).join("")}</ol>
+  </details>`;
 }
 
 async function sendFeedback(reply, turnId, button) {
@@ -163,14 +210,17 @@ async function ask(retryQuestion) {
   try {
     const response = await fetch("/api/chat/stream", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: withClient({ "Content-Type": "application/json" }),
       body: JSON.stringify({
         question,
         conversation_id: state.conversationId,
         doc_ids: docId ? [docId] : null,
       }),
     }).catch(() => { throw new Error(SERVER_DOWN); });
-    if (!response.ok) throw new Error(`The server answered with status ${response.status}.`);
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(typeof body.detail === "string" ? body.detail : `The server answered with status ${response.status}.`);
+    }
 
     await readEvents(response, (type, data) => {
       if (type === "retrieval") {
@@ -323,7 +373,7 @@ async function requestDelete(button, id) {
   clearTimeout(button.confirmTimer);
   if (state.busy && id === state.conversationId) return;
   try {
-    const response = await fetch(`/api/conversations/${id}`, { method: "DELETE" });
+    const response = await fetch(`/api/conversations/${id}`, { method: "DELETE", headers: withClient() });
     if (!response.ok && response.status !== 404) throw new Error();
     button.closest(".history-row").remove();
     if (id === state.conversationId) startNewChat();
@@ -396,6 +446,45 @@ function openViewer(citation) {
 $("viewer-close").addEventListener("click", () => $("viewer").close());
 $("viewer").addEventListener("click", (event) => {
   if (event.target === $("viewer")) $("viewer").close();
+});
+
+/* --- How it works --------------------------------------------------------------------------- */
+
+const number = (value) => Number(value).toLocaleString("en-US");
+
+async function openPipeline() {
+  const body = $("pipeline-body");
+  body.innerHTML = '<p class="viewer-status">Loading</p>';
+  $("pipeline").showModal();
+  closeMenu();
+  try {
+    const [documents, health] = await Promise.all([getJson("/api/documents"), getJson("/api/health")]);
+    const ready = documents.filter((doc) => doc.status === "ready");
+    const sum = (key) => ready.reduce((total, doc) => total + doc[key], 0);
+    const steps = [
+      ["PDFs", number(ready.length), `${number(sum("page_count"))} pages. The smallest has ${number(Math.min(...ready.map((doc) => doc.page_count)))}.`],
+      ["Extract and OCR", number(sum("ocr_pages")), `scanned pages read with RapidOCR, plus text from ${number(sum("image_ocr_blocks"))} figures. The rest uses PyMuPDF.`],
+      ["Clean", number(sum("removed_boilerplate_blocks")), `headers and footers removed, and ${number(sum("skipped_pages"))} contents and index pages set aside.`],
+      ["Chunk", number(sum("chunk_count")), "passages of up to 500 tokens with 15% overlap, each keeping its file and page."],
+      ["Embed", "768", `dimensions per passage, using the open-source ${escapeHtml(health.embedding_model)}.`],
+      ["Vector DB", number(health.vectors), "vectors in ChromaDB (HNSW), plus a BM25 keyword index."],
+    ];
+    body.innerHTML = `<ol class="flow">${steps.map(([name, value, note]) => `
+        <li class="flow-step"><span class="flow-name">${name}</span><span class="flow-value">${value}</span><span class="flow-note">${note}</span></li>`).join("")}</ol>
+      <h3 class="pipeline-heading">Documents in the library</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>PDF</th><th class="num">Pages</th><th class="num">Scanned</th><th class="num">Passages</th></tr></thead>
+        <tbody>${ready.map((doc) => `<tr><td>${escapeHtml(prettyName(doc.filename))}</td><td class="num">${number(doc.page_count)}</td><td class="num">${number(doc.ocr_pages)}</td><td class="num">${number(doc.chunk_count)}</td></tr>`).join("")}</tbody>
+      </table></div>`;
+  } catch (error) {
+    body.innerHTML = `<div class="error"><span>${escapeHtml(error.message)}</span></div>`;
+  }
+}
+
+$("open-pipeline").addEventListener("click", openPipeline);
+$("pipeline-close").addEventListener("click", () => $("pipeline").close());
+$("pipeline").addEventListener("click", (event) => {
+  if (event.target === $("pipeline")) $("pipeline").close();
 });
 
 /* --- Startup --------------------------------------------------------------------------------- */
